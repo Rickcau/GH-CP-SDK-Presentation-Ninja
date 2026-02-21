@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Trends in the Landscaping Design Space.</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#02040a;color:#fff}
+.deck{position:relative;width:100%;height:100%}
+.slide{opacity:0;pointer-events:none;transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1);overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto;z-index:1}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#22d3ee,#a78bfa);transition:width 0.4s ease;z-index:10001}
+.nav{position:fixed;bottom:24px;right:24px;display:flex;gap:8px;z-index:10000}
+.nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;backdrop-filter:blur(10px)}
+.nav button:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4)}
+.nav button:disabled{opacity:0.3;cursor:not-allowed}
+.nav button.active{background:rgba(139,92,246,0.5);border-color:rgba(139,92,246,0.7)}
+.counter{position:fixed;bottom:32px;left:24px;font-size:0.85rem;opacity:0.4;z-index:10000;font-variant-numeric:tabular-nums}
+@media(max-width:768px){.nav{bottom:16px;right:16px}.counter{bottom:24px;left:16px}}
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+<div class="slide" data-index="0" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-0 { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideInRight-0 { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes pulse-0 { 0%,100% { opacity:0.2; } 50% { opacity:0.4; } }
+    @keyframes float-0 { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
+    @keyframes gridMove-0 { 0% { background-position: 0 0; } 100% { background-position: 40px 40px; } }
+  </style>
+
+  <!-- Background Visuals -->
+  <!-- Digital Grid Overlay -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(34,211,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.05) 1px, transparent 1px);background-size:40px 40px;animation:gridMove-0 20s linear infinite;z-index:0;opacity:0.5;"></div>
+  
+  <!-- Organic Glows (Nature aspect) -->
+  <div style="position:absolute;top:-20%;right:-10%;width:800px;height:800px;background:radial-gradient(circle, rgba(34,211,238,0.15), transparent 70%);filter:blur(60px);z-index:0;animation:pulse-0 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:800px;height:800px;background:radial-gradient(circle, rgba(52,211,153,0.12), transparent 70%);filter:blur(60px);z-index:0;animation:pulse-0 10s ease-in-out infinite reverse;"></div>
+
+  <!-- Decorative Wireframe Terrain Suggestion -->
+  <div style="position:absolute;bottom:0;width:100%;height:30%;background:linear-gradient(to top, rgba(2,4,10,1), transparent);z-index:1;"></div>
+
+  <!-- Main Content -->
+  <div style="position:relative;z-index:2;max-width:1000px;width:100%;text-align:center;">
+    
+    <!-- Subtitle / Tagline -->
+    <div style="display:inline-block;padding:8px 16px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);margin-bottom:32px;animation:fadeIn-0 0.8s ease-out both;">
+      <span style="font-size:0.9rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:linear-gradient(90deg, #34d399, #22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Strategic Innovation for Future-Ready Environments</span>
+    </div>
+
+    <!-- Main Title -->
+    <h1 style="font-size:clamp(3.5rem, 6vw, 5rem);font-weight:800;line-height:1.1;margin:0 0 24px 0;letter-spacing:-0.02em;animation:fadeIn-0 0.8s ease-out 0.2s both;">
+      <span style="display:block;color:white;">AI Trends in the</span>
+      <span style="background:linear-gradient(135deg, #34d399 0%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Landscaping Design Space</span>
+    </h1>
+
+    <!-- Description/Context -->
+    <p style="font-size:clamp(1.1rem, 2vw, 1.4rem);color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto 60px auto;line-height:1.6;animation:fadeIn-0 0.8s ease-out 0.4s both;">
+      Exploring how artificial intelligence is reshaping the intersection of nature, architecture, and operational strategy.
+    </p>
+
+    <!-- Key Points / Agenda -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;animation:fadeIn-0 0.8s ease-out 0.6s both;">
+      
+      <!-- Point 1 -->
+      <div style="flex:1;min-width:250px;max-width:300px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;backdrop-filter:blur(5px);text-align:left;transition:transform 0.3s ease;">
+        <div style="width:40px;height:40px;border-radius:8px;background:rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 style="font-size:1.1rem;color:white;margin:0 0 8px 0;">AI & Landscape Arch</h3>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Bridging digital intelligence with organic design principles.</p>
+      </div>
+
+      <!-- Point 2 -->
+      <div style="flex:1;min-width:250px;max-width:300px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;backdrop-filter:blur(5px);text-align:left;transition:transform 0.3s ease;">
+        <div style="width:40px;height:40px;border-radius:8px;background:rgba(34,211,238,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 style="font-size:1.1rem;color:white;margin:0 0 8px 0;">Generative Design</h3>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Enhancing operational efficiency through automated iteration.</p>
+      </div>
+
+      <!-- Point 3 -->
+      <div style="flex:1;min-width:250px;max-width:300px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;backdrop-filter:blur(5px);text-align:left;transition:transform 0.3s ease;">
+        <div style="width:40px;height:40px;border-radius:8px;background:rgba(167,139,250,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-size:1.1rem;color:white;margin:0 0 8px 0;">Governance</h3>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.4;">Strategic implementation and ethical frameworks.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Decorative Footer Line -->
+  <div style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:150px;height:4px;border-radius:2px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);animation:fadeIn-0 1s ease-out 1s both;"></div>
+</div>
+<div class="slide" data-index="1" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-1 { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideRight-1 { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0); } }
+    @keyframes pulse-1 { 0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.2); border-color: rgba(34, 211, 238, 0.4); } 50% { box-shadow: 0 0 20px 0 rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.8); } }
+    @keyframes flowLine-1 { 0% { height: 0; opacity: 0; } 100% { height: 40px; opacity: 1; } }
+    
+    .point-card-1 {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .diagram-node-1 {
+      background: rgba(16, 24, 39, 0.8);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 16px 24px;
+      border-radius: 16px;
+      text-align: center;
+      width: 220px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .diagram-arrow-1 {
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.1), #22d3ee);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+
+  <!-- Background Accents -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52, 211, 153, 0.08),transparent 70%);filter:blur(40px);"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(34, 211, 238, 0.06),transparent 70%);filter:blur(40px);"></div>
+
+  <!-- Header -->
+  <div style="width:100%;max-width:1000px;margin-bottom:50px;text-align:center;z-index:10;">
+    <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-1 0.6s ease-out both;">From Toolset to Trusted Partner</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #34d399 0%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-1 0.6s ease-out 0.1s both;">The Intersection of AI & Landscape</h1>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;width:100%;max-width:1000px;align-items:center;z-index:10;">
+    
+    <!-- Left Column: Key Points -->
+    <div style="display:flex;flex-direction:column;">
+      
+      <!-- Point 1 -->
+      <div class="point-card-1" style="animation:slideRight-1 0.6s ease-out 0.3s both;">
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(34, 211, 238, 0.15);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#22d3ee;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          </div>
+          <h3 style="font-size:1.25rem;font-weight:600;color:#fff;margin:0;">Shift to Agentic AI</h3>
+        </div>
+        <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);margin:0;padding-left:44px;">Moving beyond simple automation to autonomous systems that are trustworthy, governable, and scalable for complex environments.</p>
+      </div>
+
+      <!-- Point 2 -->
+      <div class="point-card-1" style="animation:slideRight-1 0.6s ease-out 0.45s both;">
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(167, 139, 250, 0.15);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#a78bfa;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 style="font-size:1.25rem;font-weight:600;color:#fff;margin:0;">Digital Public Squares</h3>
+        </div>
+        <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);margin:0;padding-left:44px;">Leveraging AI to analyze vast amounts of citizen input, ensuring urban planning reflects diverse community needs.</p>
+      </div>
+
+      <!-- Point 3 -->
+      <div class="point-card-1" style="animation:slideRight-1 0.6s ease-out 0.6s both; margin-bottom:0;">
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(52, 211, 153, 0.15);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#34d399;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 style="font-size:1.25rem;font-weight:600;color:#fff;margin:0;">Human-AI Collaboration</h3>
+        </div>
+        <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);margin:0;padding-left:44px;">Enhancing deliberation models to foster consensus and creativity in public space development.</p>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Flow Diagram -->
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;">
+      
+      <!-- Node 1 -->
+      <div class="diagram-node-1" style="animation:fadeIn-1 0.6s ease-out 0.8s both;">
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Input Data</div>
+        <div style="font-size:1.1rem;font-weight:700;color:#fff;">Citizen Input</div>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div class="diagram-arrow-1" style="height:40px;animation:flowLine-1 0.5s ease-out 1.2s both;"></div>
+
+      <!-- Node 2 (Center/Active) -->
+      <div class="diagram-node-1" style="border-color:rgba(34, 211, 238, 0.6);animation:fadeIn-1 0.6s ease-out 1.4s both, pulse-1 3s infinite 2s;">
+        <div style="font-size:0.85rem;color:#22d3ee;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Processing</div>
+        <div style="font-size:1.2rem;font-weight:800;background:linear-gradient(90deg,#fff,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI Analysis</div>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div class="diagram-arrow-1" style="height:40px;animation:flowLine-1 0.5s ease-out 1.8s both;"></div>
+
+      <!-- Node 3 -->
+      <div class="diagram-node-1" style="animation:fadeIn-1 0.6s ease-out 2.0s both;">
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Output</div>
+        <div style="font-size:1.1rem;font-weight:700;color:#34d399;">Design Proposal</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="2" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-2 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-2 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes flowUp-2 { 0% { opacity: 0.3; transform: translateY(10px); } 50% { opacity: 1; transform: translateY(-5px); } 100% { opacity: 0.3; transform: translateY(10px); } }
+    @keyframes pulse-2 { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.05); } }
+    
+    .stack-card-2 {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 24px 32px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    
+    .stack-label-2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.5);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: center;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      padding-left: 16px;
+      margin-left: -8px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .connector-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:10%;left:20%;width:600px;height:600px;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;filter:blur(60px);animation:pulse-2 8s infinite ease-in-out;"></div>
+  <div style="position:absolute;bottom:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle, rgba(34,211,238,0.06), transparent 70%);border-radius:50%;filter:blur(60px);animation:pulse-2 10s infinite ease-in-out 1s;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:40px;z-index:2;max-width:800px;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);color:rgba(255,255,255,0.6);margin-bottom:12px;letter-spacing:0.05em;animation:fadeIn-2 0.8s ease-out both;">GENERATE & PREDICT</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #22d3ee, #a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-2 0.8s ease-out 0.1s both;">Key Technologies Driving Efficiency</h1>
+  </div>
+
+  <!-- Diagram Container -->
+  <div style="display:flex;flex-direction:column;width:100%;max-width:850px;z-index:2;position:relative;">
+    
+    <!-- Level 3: Strategic Output (Top) -->
+    <div class="stack-card-2" style="border-color:rgba(52,211,153,0.3);background:linear-gradient(90deg, rgba(52,211,153,0.05), rgba(255,255,255,0.02));animation:slideUp-2 0.6s ease-out 0.6s both;">
+      <div class="stack-label-2" style="color:#34d399;">Output</div>
+      <div style="flex:1;">
+        <h3 style="font-size:1.4rem;color:#fff;margin:0 0 8px 0;display:flex;align-items:center;gap:12px;">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399;"></span>
+          Predictive Analytics
+        </h3>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;">
+          Anticipating ecosystem maintenance needs and neutralizing system failures before they occur.
+        </p>
+      </div>
+    </div>
+
+    <!-- Connector -->
+    <div class="connector-2" style="animation:fadeIn-2 0.6s ease-out 0.5s both;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </div>
+
+    <!-- Level 2: Generative Engines (Middle) -->
+    <div class="stack-card-2" style="border-color:rgba(167,139,250,0.3);background:linear-gradient(90deg, rgba(167,139,250,0.05), rgba(255,255,255,0.02));animation:slideUp-2 0.6s ease-out 0.4s both;">
+      <div class="stack-label-2" style="color:#a78bfa;">Engine</div>
+      <div style="flex:1;">
+        <h3 style="font-size:1.4rem;color:#fff;margin:0 0 8px 0;display:flex;align-items:center;gap:12px;">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#a78bfa;box-shadow:0 0 10px #a78bfa;"></span>
+          Generative Design
+        </h3>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;">
+          Rapidly iterating site options based on environmental constraints and complex parameters.
+        </p>
+      </div>
+    </div>
+
+    <!-- Connector -->
+    <div class="connector-2" style="animation:fadeIn-2 0.6s ease-out 0.3s both;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </div>
+
+    <!-- Level 1: Data Input (Bottom) -->
+    <div class="stack-card-2" style="border-color:rgba(34,211,238,0.3);background:linear-gradient(90deg, rgba(34,211,238,0.05), rgba(255,255,255,0.02));animation:slideUp-2 0.6s ease-out 0.2s both;">
+      <div class="stack-label-2" style="color:#22d3ee;">Input</div>
+      <div style="flex:1;">
+        <h3 style="font-size:1.4rem;color:#fff;margin:0 0 8px 0;display:flex;align-items:center;gap:12px;">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee;"></span>
+          Workflow Evolution
+        </h3>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);margin:0;line-height:1.5;">
+          Transitioning from isolated tools to foundational, agent-driven super-apps.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="3" style="position:absolute;top:0;left:0;width:100%;height:100%;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;">
+  <style>
+    @keyframes fadeIn-3 { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes growBar-3 { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+    @keyframes pulse-3 { 0%,100% { opacity:0.1; } 50% { opacity:0.15; } }
+  </style>
+
+  <!-- Background Gradient Orb -->
+  <div style="position:absolute;top:-20%;right:-10%;width:700px;height:700px;background:radial-gradient(circle, rgba(52,211,153,0.06), transparent 70%);border-radius:50%;filter:blur(80px);pointer-events:none;"></div>
+  
+  <!-- Background Growth Chart Graphic -->
+  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1000px;height:45%;display:flex;justify-content:space-between;align-items:flex-end;padding:0 120px;opacity:0.1;pointer-events:none;z-index:0;">
+    <div style="width:18%;height:30%;background:#34d399;border-radius:8px 8px 0 0;transform-origin:bottom;animation:growBar-3 1s ease-out 0.2s backwards;"></div>
+    <div style="width:18%;height:55%;background:#34d399;border-radius:8px 8px 0 0;transform-origin:bottom;animation:growBar-3 1s ease-out 0.4s backwards;"></div>
+    <div style="width:18%;height:85%;background:linear-gradient(to top, #34d399, #22d3ee);border-radius:8px 8px 0 0;transform-origin:bottom;animation:growBar-3 1s ease-out 0.6s backwards;"></div>
+  </div>
+
+  <!-- Main Content Container -->
+  <div style="position:relative;z-index:1;max-width:900px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;">
+    
+    <!-- Header -->
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:16px;animation:fadeIn-3 0.6s ease-out both;">Why AI Leaders Win</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin-bottom:60px;background:linear-gradient(135deg, #34d399 0%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-3 0.6s ease-out 0.1s both;">Strategic Advantages</h1>
+
+    <!-- Hero Quote -->
+    <div style="position:relative;margin-bottom:60px;animation:fadeIn-3 0.8s ease-out 0.2s both;">
+      <div style="font-size:clamp(6rem, 10vw, 8rem);position:absolute;top:-50px;left:-60px;color:rgba(52,211,153,0.15);font-family:serif;line-height:1;user-select:none;">&ldquo;</div>
+      <p style="font-size:clamp(1.6rem, 3.5vw, 2.2rem);font-weight:300;line-height:1.35;color:#ffffff;max-width:850px;position:relative;z-index:2;">
+        AI is a defining force shaping <span style="color:#34d399;font-weight:500;border-bottom:1px solid rgba(52,211,153,0.3);">leadership structures</span> and <span style="color:#22d3ee;font-weight:500;border-bottom:1px solid rgba(34,211,238,0.3);">competitive strategy</span>.
+      </p>
+    </div>
+
+    <!-- Supporting Pillars Grid -->
+    <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:30px;width:100%;text-align:left;">
+      
+      <!-- Pillar 1 -->
+      <div style="padding:28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;backdrop-filter:blur(10px);animation:fadeIn-3 0.6s ease-out 0.4s both;display:flex;flex-direction:column;gap:12px;transition:transform 0.3s ease;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;color:#34d399;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 style="font-size:1.15rem;font-weight:600;color:#fff;letter-spacing:0.02em;">Ethical Frameworks</h3>
+        </div>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Establishing robust systems for accountability, ethics, and risk management.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div style="padding:28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;backdrop-filter:blur(10px);animation:fadeIn-3 0.6s ease-out 0.5s both;display:flex;flex-direction:column;gap:12px;transition:transform 0.3s ease;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,211,238,0.15);display:flex;align-items:center;justify-content:center;color:#22d3ee;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3 style="font-size:1.15rem;font-weight:600;color:#fff;letter-spacing:0.02em;">Core Integration</h3>
+        </div>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Moving beyond 'side projects' to deep business integration drives long-term growth.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="4" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-4 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-4 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-4 { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.05); } }
+    @keyframes drawLine-4 { from { height: 0; opacity: 0; } to { height: 100%; opacity: 1; } }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:-20%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(251,113,133,0.1),transparent 70%);animation:pulse-4 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,0.1),transparent 70%);animation:pulse-4 8s ease-in-out infinite 4s;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:50px;z-index:2;max-width:900px;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-4 0.8s ease-out both;">Navigating the Implementation Gap</h2>
+    <h1 style="font-size:clamp(2.2rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #fb7185 0%, #ffffff 50%, #34d399 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-4 0.8s ease-out 0.2s both;">Implementation Challenges vs. Solutions</h1>
+  </div>
+
+  <!-- Comparison Content -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;width:100%;max-width:1100px;z-index:2;position:relative;">
+    
+    <!-- Vertical Divider Line -->
+    <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);transform:translateX(-50%);animation:drawLine-4 1s ease-out 0.4s both;"></div>
+
+    <!-- Left Column: Hurdles -->
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;animation:slideUp-4 0.6s ease-out 0.3s both;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(251,113,133,0.2);display:flex;align-items:center;justify-content:center;color:#fb7185;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </div>
+        <h3 style="font-size:1.5rem;color:#fb7185;margin:0;font-weight:600;">Hurdles</h3>
+      </div>
+
+      <!-- Card 1 -->
+      <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(251,113,133,0.3);backdrop-filter:blur(10px);animation:slideUp-4 0.6s ease-out 0.4s both;">
+        <h4 style="font-size:1.2rem;color:#fff;margin:0 0 8px 0;font-weight:600;">The Implementation Gap</h4>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Disconnect between strategic planning and actual execution caused by resource constraints and misaligned priorities.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(251,113,133,0.3);backdrop-filter:blur(10px);animation:slideUp-4 0.6s ease-out 0.5s both;">
+        <h4 style="font-size:1.2rem;color:#fff;margin:0 0 8px 0;font-weight:600;">Cultural Resistance</h4>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Internal friction regarding changing workflows and fear surrounding the 'black box' nature of AI decision-making.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column: Mitigation -->
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;animation:slideUp-4 0.6s ease-out 0.3s both;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;color:#34d399;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 style="font-size:1.5rem;color:#34d399;margin:0;font-weight:600;">Mitigation Strategies</h3>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,153,0.3);backdrop-filter:blur(10px);animation:slideUp-4 0.6s ease-out 0.6s both;">
+        <h4 style="font-size:1.2rem;color:#fff;margin:0 0 8px 0;font-weight:600;">Change Leadership</h4>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Prioritizing transparency, governance, and the 'people' aspect of transformation to build trust and adoption.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,153,0.3);backdrop-filter:blur(10px);animation:slideUp-4 0.6s ease-out 0.7s both;">
+        <h4 style="font-size:1.2rem;color:#fff;margin:0 0 8px 0;font-weight:600;">Competing Values Framework</h4>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">
+          Using structured models to balance the need for rapid innovation with internal stability and control.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="5" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-5 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-5 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes growLine-5 { from { width: 0; } to { width: 100%; } }
+    @keyframes pulse-5 { 0%, 100% { box-shadow: 0 0 20px rgba(167,139,250,0.2); transform: scale(1); } 50% { box-shadow: 0 0 40px rgba(167,139,250,0.5); transform: scale(1.05); } }
+    @keyframes float-5 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    
+    .timeline-node-5 {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .timeline-dot-5 {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #1f2937;
+      border: 2px solid rgba(255,255,255,0.2);
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+    .active-dot-5 {
+      background: #a78bfa;
+      border-color: #fff;
+      box-shadow: 0 0 20px rgba(167,139,250,0.6);
+      width: 24px;
+      height: 24px;
+    }
+    .card-5 {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.3s ease;
+    }
+    .card-5:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(167,139,250,0.3);
+    }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:-20%;right:-10%;width:800px;height:800px;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.05), transparent 70%);border-radius:50%;pointer-events:none;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:50px;z-index:10;max-width:800px;">
+    <h2 style="font-size:clamp(1rem, 2vw, 1.2rem);color:rgba(255,255,255,0.6);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;animation:fadeIn-5 0.8s ease-out both;">Closing Thoughts</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.8rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #fff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-5 0.8s ease-out 0.1s both;">Future Outlook: 2026 & Beyond</h1>
+    <p style="font-size:clamp(1.1rem, 2vw, 1.4rem);color:#a78bfa;margin-top:16px;font-weight:400;animation:slideUp-5 0.8s ease-out 0.2s both;">The Era of Augmented Intelligence</p>
+  </div>
+
+  <!-- Timeline Visual -->
+  <div style="width:100%;max-width:850px;position:relative;margin-bottom:60px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;">
+    <!-- Connecting Line -->
+    <div style="position:absolute;top:12px;left:20px;right:20px;height:2px;background:rgba(255,255,255,0.1);z-index:0;">
+      <div style="height:100%;background:linear-gradient(90deg, transparent, #a78bfa);width:100%;transform-origin:left;animation:growLine-5 1.5s ease-out 0.3s both;"></div>
+    </div>
+
+    <!-- 2024 Node -->
+    <div class="timeline-node-5" style="opacity:0.5;animation:fadeIn-5 0.6s ease-out 0.4s both;">
+      <div class="timeline-dot-5"></div>
+      <div style="font-weight:600;color:rgba(255,255,255,0.7);">2024</div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:4px;">Adoption</div>
+    </div>
+
+    <!-- 2025 Node -->
+    <div class="timeline-node-5" style="opacity:0.8;animation:fadeIn-5 0.6s ease-out 0.6s both;">
+      <div class="timeline-dot-5" style="background:#4b5563;border-color:rgba(255,255,255,0.4);"></div>
+      <div style="font-weight:600;color:rgba(255,255,255,0.9);">2025</div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:4px;">Integration</div>
+    </div>
+
+    <!-- 2026 Node (Hero) -->
+    <div class="timeline-node-5" style="animation:fadeIn-5 0.6s ease-out 0.8s both;">
+      <div class="timeline-dot-5 active-dot-5" style="animation:pulse-5 3s infinite ease-in-out;"></div>
+      <div style="font-weight:800;color:#a78bfa;font-size:1.2rem;">2026+</div>
+      <div style="font-size:0.9rem;color:#fff;margin-top:4px;text-shadow:0 0 10px rgba(167,139,250,0.5);">Augmented Intelligence</div>
+    </div>
+  </div>
+
+  <!-- Content Cards -->
+  <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;width:100%;max-width:900px;z-index:10;">
+    
+    <!-- Card 1 -->
+    <div class="card-5" style="animation:slideUp-5 0.6s ease-out 1.0s both;">
+      <div style="width:40px;height:40px;border-radius:10px;background:rgba(34,211,238,0.15);display:flex;align-items:center;justify-content:center;color:#22d3ee;font-size:1.2rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </div>
+      <h3 style="font-size:1.2rem;font-weight:700;color:#fff;margin:0;">New C-Suite Roles</h3>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">Emergence of the <span style="color:#22d3ee;font-weight:600;">Chief AI Officer (CAIO)</span> to oversee governance, ethics, and strategic implementation.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card-5" style="animation:slideUp-5 0.6s ease-out 1.2s both;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.05);">
+      <div style="width:40px;height:40px;border-radius:10px;background:rgba(167,139,250,0.2);display:flex;align-items:center;justify-content:center;color:#a78bfa;font-size:1.2rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10h-10V2z"></path><path d="M12 12L2.5 7.5"></path><path d="M12 12l9.5-4.5"></path></svg>
+      </div>
+      <h3 style="font-size:1.2rem;font-weight:700;color:#fff;margin:0;">Augmented Intelligence</h3>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">AI enhancing human creativity and decision-making rather than replacing it. A shift from automation to <span style="color:#a78bfa;font-weight:600;">amplification</span>.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-5" style="animation:slideUp-5 0.6s ease-out 1.4s both;">
+      <div style="width:40px;height:40px;border-radius:10px;background:rgba(251,113,133,0.15);display:flex;align-items:center;justify-content:center;color:#fb7185;font-size:1.2rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+      <h3 style="font-size:1.2rem;font-weight:700;color:#fff;margin:0;">Blended Workforce</h3>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.5;margin:0;">Managing a hybrid team of human talent and specialized <span style="color:#fb7185;font-weight:600;">AI agents</span> working collaboratively.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer / Decorative -->
+  <div style="position:absolute;bottom:30px;width:100%;text-align:center;opacity:0.4;font-size:0.8rem;color:rgba(255,255,255,0.5);animation:fadeIn-5 1s ease-out 2s both;">
+    Thank you for attending
+  </div>
+
+</div>
+</div>
+<div class="counter" id="counter">1 / 6</div>
+<div class="nav">
+  <button id="prev" aria-label="Previous slide" disabled>&#8592;</button>
+  <button id="next" aria-label="Next slide" >&#8594;</button>
+  <button id="notesBtn" aria-label="Toggle speaker notes" title="Speaker Notes" style="font-size:1rem">&#128221;</button>
+</div>
+<script>
+(function(){
+  var current=0;
+  var slides=document.querySelectorAll('.slide');
+  var total=slides.length;
+  var prevBtn=document.getElementById('prev');
+  var nextBtn=document.getElementById('next');
+  var counter=document.getElementById('counter');
+  var progress=document.getElementById('progress');
+
+  if(total>0) slides[0].classList.add('active');
+
+  function goTo(n){
+    if(n<0||n>=total)return;
+    slides[current].classList.remove('active');
+    current=n;
+    slides[current].classList.add('active');
+    prevBtn.disabled=current===0;
+    nextBtn.disabled=current===total-1;
+    counter.textContent=(current+1)+' / '+total;
+    progress.style.width=((current+1)/total*100)+'%';
+    window.parent.postMessage({type:'deckState',currentSlide:current+1,totalSlides:total},'*');
+  }
+
+  prevBtn.addEventListener('click',function(){goTo(current-1)});
+  nextBtn.addEventListener('click',function(){goTo(current+1)});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' ')goTo(current+1);
+    if(e.key==='ArrowLeft')goTo(current-1);
+  });
+
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.type==='keyEvent'){
+      if(e.data.code==='ArrowRight'||e.data.code==='Space')goTo(current+1);
+      if(e.data.code==='ArrowLeft')goTo(current-1);
+    }
+    if(e.data&&e.data.type==='goToSlide'){goTo(e.data.slide)}
+  });
+
+  var startX=0;
+  document.addEventListener('touchstart',function(e){startX=e.touches[0].clientX});
+  document.addEventListener('touchend',function(e){
+    var diff=e.changedTouches[0].clientX-startX;
+    if(Math.abs(diff)>50){diff<0?goTo(current+1):goTo(current-1)}
+  });
+
+  progress.style.width=(1/total*100)+'%';
+  window.parent.postMessage({type:'deckState',currentSlide:1,totalSlides:total},'*');
+
+  // ── Presenter View ──
+  var notesData=[{"slide":1,"title":"AI Trends in the Landscaping Design Space","notes":"Welcome. Today we will explore how Artificial Intelligence is moving beyond simple automation to become a foundational element of landscape design. We will cover the shift toward agentic AI, the operational efficiencies of generative design, and the leadership frameworks required to navigate this transformation."},{"slide":2,"title":"The Intersection of AI & Landscape Design","notes":"AI is fundamentally changing our architectural approach. We are seeing a trend toward 'Agentic AI,' where systems act proactively. In the context of public landscapes, AI is being used to analyze vast amounts of citizen data—creating 'Digital Public Squares'—which allows us to design spaces that better reflect community needs and minimize adversarial planning processes."},{"slide":3,"title":"Key Technologies Driving Efficiency","notes":"Two primary technologies are reshaping our workflows: Generative Design and Predictive Analytics. The former allows us to iterate design options at a speed previously impossible, while the latter helps us predict maintenance issues before they arise. By 2026, we expect these isolated tools to merge into agent-driven 'super-apps' that streamline the entire design lifecycle."},{"slide":4,"title":"Strategic Advantages","notes":"As noted by Business Chief, AI is no longer just an emerging consideration; it is the defining force of modern strategy. Organizations that treat AI as a core business function—rather than a side project—are establishing a significant competitive edge. This requires us to formalize AI leadership, potentially even at the board level."},{"slide":5,"title":"Implementation Challenges vs. Solutions","notes":"Despite the benefits, we face a 'strategy implementation gap.' The technology is ready, but often our organizational culture is not. To mitigate risks like cultural resistance and resource constraints, we must employ strong Change Leadership. We need to focus on the human side of this transition, ensuring transparency and using frameworks that balance innovation with governance."},{"slide":6,"title":"Future Outlook: 2026 and Beyond","notes":"Looking ahead, we are moving toward a model of 'Augmented Intelligence.' We are not replacing landscape architects; we are equipping them with co-pilots. Expect to see new roles like the Chief AI Officer emerge to manage this blended workforce. Our goal is to intertwine AI insights with our creative vision to build the landscapes of the future."}];
+  var notesWin=null;
+  var notesBtn=document.getElementById('notesBtn');
+  var isInIframe=window.self!==window.top;
+  if(isInIframe&&notesBtn)notesBtn.style.display='none';
+
+  function buildNotesHtml(){
+    return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Speaker Notes - '+"AI Trends in the Landscaping Design Space."+'</title>'
+      +'<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;padding:32px;height:100vh;display:flex;flex-direction:column}'
+      +'.header{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1)}'
+      +'.slide-num{font-size:0.85rem;color:#a78bfa;font-weight:600;letter-spacing:0.05em}'
+      +'.slide-title{font-size:1.5rem;font-weight:700;margin-bottom:16px;color:#f1f5f9}'
+      +'.notes-text{font-size:1.15rem;line-height:1.8;color:#cbd5e1;flex:1;overflow-y:auto;white-space:pre-wrap}'
+      +'.nav{display:flex;gap:8px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)}'
+      +'.nav button{padding:8px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;cursor:pointer;font-size:0.9rem;transition:all 0.2s}'
+      +'.nav button:hover{background:rgba(255,255,255,0.2)}.nav button:disabled{opacity:0.3;cursor:not-allowed}'
+      +'.nav .counter{flex:1;text-align:center;line-height:38px;font-size:0.85rem;color:#64748b}</style></head>'
+      +'<body>'
+      +'<div class="header"><span class="slide-num" id="sn-num"></span></div>'
+      +'<div class="slide-title" id="sn-title"></div>'
+      +'<div class="notes-text" id="sn-notes"></div>'
+      +'<div class="nav">'
+      +'<button id="sn-prev">&#8592; Previous</button>'
+      +'<span class="counter" id="sn-counter"></span>'
+      +'<button id="sn-next">Next &#8594;</button>'
+      +'</div>'
+      +'<script>'
+      +'var allNotes='+JSON.stringify(notesData)+';'
+      +'var totalSlides='+total+';'
+      +'function showNote(s){'
+      +'var n=allNotes[s-1]||{title:"",notes:"No notes for this slide."};'
+      +'document.getElementById("sn-num").textContent="SLIDE "+s+" OF "+totalSlides;'
+      +'document.getElementById("sn-title").textContent=n.title;'
+      +'document.getElementById("sn-notes").textContent=n.notes;'
+      +'document.getElementById("sn-counter").textContent=s+" / "+totalSlides;'
+      +'}'
+      +'showNote(1);'
+      +'document.getElementById("sn-prev").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"prev"},"*")});'
+      +'document.getElementById("sn-next").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"next"},"*")});'
+      +'window.addEventListener("message",function(e){if(e.data&&e.data.type==="noteUpdate")showNote(e.data.slide)});'
+      +'<\/script></body></html>';
+  }
+
+  function updateNotesWindow(){
+    if(notesWin&&!notesWin.closed){
+      notesWin.postMessage({type:'noteUpdate',slide:current+1},'*');
+    }
+  }
+
+  // Listen for navigation requests from notes window
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.type==='notesNav'){
+      if(e.data.dir==='prev')goTo(current-1);
+      if(e.data.dir==='next')goTo(current+1);
+    }
+  });
+
+  // Patch goTo to also update notes window
+  var origGoTo=goTo;
+  goTo=function(n){
+    origGoTo(n);
+    updateNotesWindow();
+  };
+
+  if(notesBtn)notesBtn.addEventListener('click',function(){
+    if(notesWin&&!notesWin.closed){
+      notesWin.close();
+      notesWin=null;
+      notesBtn.classList.remove('active');
+    }else{
+      notesWin=window.open('','_blank','width=500,height=600');
+      if(notesWin){
+        notesWin.document.open();
+        notesWin.document.write(buildNotesHtml());
+        notesWin.document.close();
+        notesBtn.classList.add('active');
+        var checkClosed=setInterval(function(){if(notesWin&&notesWin.closed){notesWin=null;notesBtn.classList.remove('active');clearInterval(checkClosed)}},500);
+      }
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

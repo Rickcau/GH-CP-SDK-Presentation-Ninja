@@ -1,0 +1,12 @@
+export { TitleSlide } from "./TitleSlide";
+export { ContentSlide } from "./ContentSlide";
+export { SplitSlide } from "./SplitSlide";
+export { CodeSlide } from "./CodeSlide";
+export { StatSlide } from "./StatSlide";
+export { ComparisonSlide } from "./ComparisonSlide";
+export { TimelineSlide } from "./TimelineSlide";
+export { QuoteSlide } from "./QuoteSlide";
+export { BentoSlide } from "./BentoSlide";
+export { ChartSlide } from "./ChartSlide";
+export { YoutubeSlide } from "./YoutubeSlide";
+export { DemoSlide } from "./DemoSlide";

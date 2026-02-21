@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - COPILOT_GITHUB_TOKEN=${COPILOT_GITHUB_TOKEN}
+      - NEXTAUTH_SECRET=docker-dev-secret
+      - NEXTAUTH_URL=http://localhost:3000
+      - DATABASE_URL=file:./data/app.db
+      - STORAGE_PATH=./data/output
+      - VECTOR_STORE_PROVIDER=local
+    volumes:
+      - ./data:/app/data

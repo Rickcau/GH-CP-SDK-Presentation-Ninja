@@ -1,0 +1,51 @@
+<!-- Layout: closing-cta - Closing slide with call to action, action cards, and contact info -->
+<style>
+  .closing-cta { position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .closing-cta .orb-1 { position:absolute; top:-20%; left:-10%; width:60vw; height:60vw; background:radial-gradient(circle, rgba(var(--primary-rgb,34,211,238),0.08), transparent 70%); border-radius:50%; filter:blur(60px); animation:cc-pulse 8s ease-in-out infinite; }
+  .closing-cta .orb-2 { position:absolute; bottom:-20%; right:-10%; width:50vw; height:50vw; background:radial-gradient(circle, rgba(var(--secondary-rgb,167,139,250),0.08), transparent 70%); border-radius:50%; filter:blur(60px); animation:cc-pulse 8s ease-in-out infinite 4s; }
+  .closing-cta h1 { font-size:clamp(3rem,6vw,4.5rem); font-weight:800; line-height:1.1; margin:0; background:linear-gradient(135deg, #ffffff, var(--secondary,#a78bfa)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:cc-fadeIn 0.8s ease-out 0.2s both; }
+  .closing-cta .actions { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; width:100%; max-width:900px; margin-bottom:auto; }
+  .closing-cta .action-card { background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:32px 24px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform 0.3s ease; }
+  .closing-cta .action-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+  .closing-cta .action-card h3 { font-size:1.25rem; color:#fff; margin:0 0 12px 0; font-weight:600; }
+  .closing-cta .action-card p { font-size:0.95rem; color:rgba(255,255,255,0.6); line-height:1.5; margin:0; }
+  .closing-cta .footer { width:100%; max-width:900px; border-top:1px solid rgba(255,255,255,0.1); padding-top:30px; display:flex; justify-content:space-between; align-items:center; animation:cc-fadeIn 0.8s ease-out 1.0s both; margin-top:40px; }
+  .closing-cta .brand { display:flex; align-items:center; gap:12px; }
+  .closing-cta .brand-mark { width:32px; height:32px; background:linear-gradient(135deg, var(--primary,#22d3ee), var(--secondary,#a78bfa)); border-radius:6px; }
+  .closing-cta .brand-name { font-weight:700; font-size:1.1rem; letter-spacing:0.05em; color:#fff; }
+  .closing-cta .contact { display:flex; gap:32px; }
+  .closing-cta .contact-item { display:flex; align-items:center; gap:8px; color:rgba(255,255,255,0.6); font-size:0.9rem; }
+  @keyframes cc-fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes cc-pulse { 0%,100% { opacity:0.4; transform:scale(1); } 50% { opacity:0.6; transform:scale(1.05); } }
+</style>
+<div class="closing-cta">
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+  <div style="position:relative; z-index:2; width:100%; max-width:900px; display:flex; flex-direction:column; align-items:center; text-align:center; height:100%; justify-content:space-between; padding:40px 0;">
+    <div style="margin-bottom:40px;">
+      <h2 style="font-size:clamp(1rem,2vw,1.2rem); text-transform:uppercase; letter-spacing:0.3em; color:var(--primary,#22d3ee); margin-bottom:16px; animation:cc-fadeIn 0.8s ease-out both;">{{SUBTITLE}}</h2>
+      <h1>{{TITLE}}</h1>
+      <p style="font-size:clamp(1.2rem,2.5vw,1.5rem); color:rgba(255,255,255,0.7); margin-top:16px; font-weight:300; animation:cc-fadeIn 0.8s ease-out 0.4s both;">{{DESCRIPTION}}</p>
+    </div>
+    <div class="actions">
+      {{ITEMS}}
+      <!-- Example action card:
+      <div class="action-card" style="animation:cc-fadeIn 0.8s ease-out 0.6s both;">
+        <div class="action-icon" style="background:rgba(34,211,238,0.15); color:#22d3ee;">ICON</div>
+        <h3>Action Title</h3>
+        <p>Brief call-to-action description.</p>
+      </div>
+      -->
+    </div>
+    <div class="footer">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span class="brand-name">{{BRAND}}</span>
+      </div>
+      <div class="contact">
+        <div class="contact-item">{{CONTACT_1}}</div>
+        <div class="contact-item">{{CONTACT_2}}</div>
+      </div>
+    </div>
+  </div>
+</div>

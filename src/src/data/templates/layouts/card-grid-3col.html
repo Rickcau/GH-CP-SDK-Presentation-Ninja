@@ -1,0 +1,38 @@
+<!-- Layout: card-grid-3col - 3-column card layout with icons, titles, and descriptions -->
+<style>
+  .card-grid-3col { position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .card-grid-3col .orb { position:absolute; top:10%; left:10%; width:500px; height:500px; background:radial-gradient(circle, rgba(var(--primary-rgb,34,211,238),0.05), transparent 70%); border-radius:50%; filter:blur(40px); }
+  .card-grid-3col h1 { font-size:clamp(2.5rem,5vw,3.5rem); font-weight:800; margin:0; background:linear-gradient(135deg, var(--primary,#22d3ee), var(--secondary,#a78bfa)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:cg3-slideUp 0.6s ease-out 0.1s both; }
+  .card-grid-3col .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; width:100%; max-width:1000px; }
+  .card-grid-3col .card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(12px); border-radius:16px; padding:24px; display:flex; flex-direction:column; align-items:center; text-align:center; animation:cg3-slideUp 0.6s ease-out both; transition:transform 0.3s ease; }
+  .card-grid-3col .card:nth-child(1) { animation-delay:0.3s; }
+  .card-grid-3col .card:nth-child(2) { animation-delay:0.4s; }
+  .card-grid-3col .card:nth-child(3) { animation-delay:0.5s; }
+  .card-grid-3col .icon-wrap { width:80px; height:80px; margin-bottom:20px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,0.05); animation:cg3-float 4s ease-in-out infinite; }
+  .card-grid-3col .card h3 { font-size:1.5rem; margin:0 0 8px 0; color:#fff; }
+  .card-grid-3col .card p { font-size:0.95rem; color:rgba(255,255,255,0.6); line-height:1.5; margin:0; }
+  .card-grid-3col .badge { font-size:0.75rem; padding:4px 12px; border-radius:20px; background:rgba(255,255,255,0.1); margin-top:12px; font-weight:600; letter-spacing:0.5px; }
+  @keyframes cg3-slideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes cg3-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+</style>
+<div class="card-grid-3col">
+  <div class="orb"></div>
+  <div style="position:relative; z-index:2; max-width:1000px; width:100%;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <h2 style="font-size:clamp(0.9rem,2vw,1.1rem); text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.5); margin-bottom:12px; animation:cg3-slideUp 0.6s ease-out both;">{{SUBTITLE}}</h2>
+      <h1>{{TITLE}}</h1>
+      <p style="font-size:1.2rem; color:rgba(255,255,255,0.7); margin-top:10px; animation:cg3-slideUp 0.6s ease-out 0.2s both;">{{DESCRIPTION}}</p>
+    </div>
+    <div class="grid">
+      {{ITEMS}}
+      <!-- Example item structure:
+      <div class="card">
+        <div class="icon-wrap" style="color:#22d3ee; border:1px solid rgba(34,211,238,0.2);">ICON</div>
+        <h3>Card Title</h3>
+        <p>Card description.</p>
+        <div class="badge" style="color:#22d3ee; border:1px solid rgba(34,211,238,0.3);">Label</div>
+      </div>
+      -->
+    </div>
+  </div>
+</div>

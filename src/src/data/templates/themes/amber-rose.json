@@ -1,0 +1,26 @@
+{
+  "name": "Amber Rose",
+  "id": "amber-rose",
+  "description": "A warm, energetic theme with golden amber and soft rose — ideal for automotive, energy, leadership, and business topics.",
+  "colors": {
+    "primary": "#fbbf24",
+    "secondary": "#fb7185",
+    "tertiary": "#f97316",
+    "background": "#02040a",
+    "surface": "rgba(255,255,255,0.03)",
+    "surfaceHover": "rgba(255,255,255,0.06)",
+    "border": "rgba(255,255,255,0.06)",
+    "borderHover": "rgba(255,255,255,0.12)",
+    "text": "rgba(255,255,255,0.9)",
+    "textMuted": "rgba(255,255,255,0.5)",
+    "textSubtle": "rgba(255,255,255,0.3)"
+  },
+  "gradients": {
+    "title": "linear-gradient(135deg, #fbbf24, #fb7185)",
+    "progressBar": "linear-gradient(90deg, #fbbf24, #fb7185)",
+    "accent": "linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,113,133,0.2))",
+    "orb1": "radial-gradient(circle, rgba(251,191,36,0.15), transparent)",
+    "orb2": "radial-gradient(circle, rgba(251,113,133,0.10), transparent)"
+  },
+  "css": ":root { --primary: #fbbf24; --primary-rgb: 251,191,36; --secondary: #fb7185; --secondary-rgb: 251,113,133; --tertiary: #f97316; --tertiary-rgb: 249,115,22; --background: #02040a; --background-alt: #1a1008; --surface: rgba(255,255,255,0.03); --surface-hover: rgba(255,255,255,0.06); --border: rgba(255,255,255,0.06); --border-hover: rgba(255,255,255,0.12); --text: rgba(255,255,255,0.9); --text-muted: rgba(255,255,255,0.5); --text-subtle: rgba(255,255,255,0.3); --gradient-title: linear-gradient(135deg, #fbbf24, #fb7185); --gradient-progress: linear-gradient(90deg, #fbbf24, #fb7185); --gradient-accent: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(251,113,133,0.2)); --orb1: radial-gradient(circle, rgba(251,191,36,0.15), transparent); --orb2: radial-gradient(circle, rgba(251,113,133,0.10), transparent); --nav-active-bg: rgba(251,191,36,0.5); --nav-active-border: rgba(251,191,36,0.7); }"
+}

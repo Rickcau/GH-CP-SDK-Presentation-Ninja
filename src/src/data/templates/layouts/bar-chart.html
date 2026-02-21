@@ -1,0 +1,43 @@
+<!-- Layout: bar-chart - Animated CSS bar chart with labels and percentage values -->
+<style>
+  .bar-chart { position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .bar-chart .orb { position:absolute; top:-150px; right:-100px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(var(--secondary-rgb,167,139,250),0.08), transparent 70%); animation:bc-pulse 8s ease-in-out infinite; }
+  .bar-chart h1 { font-size:clamp(2.2rem,4.5vw,3.5rem); font-weight:800; line-height:1.1; margin:0; background:linear-gradient(135deg, var(--secondary,#a78bfa), #fb7185); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:bc-fadeIn 0.6s ease-out 0.1s both; }
+  .bar-chart .chart-area { position:relative; padding:40px; border-radius:16px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); width:100%; max-width:700px; height:320px; display:flex; align-items:flex-end; justify-content:space-around; }
+  .bar-chart .gridlines { position:absolute; top:40px; left:40px; right:40px; bottom:40px; display:flex; flex-direction:column; justify-content:space-between; z-index:0; pointer-events:none; }
+  .bar-chart .gridlines div { width:100%; height:1px; background:rgba(255,255,255,0.05); }
+  .bar-chart .bar { width:60px; border-radius:8px 8px 0 0; position:relative; transition:all 0.3s ease; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; transform-origin:bottom; animation:bc-growBar 0.8s ease-out both; }
+  .bar-chart .bar:nth-child(2) { animation-delay:0.6s; }
+  .bar-chart .bar:nth-child(3) { animation-delay:0.7s; }
+  .bar-chart .bar:nth-child(4) { animation-delay:0.8s; }
+  .bar-chart .bar:nth-child(5) { animation-delay:0.9s; }
+  .bar-chart .bar-value { margin-bottom:8px; font-weight:700; font-size:1.1rem; color:#fff; text-shadow:0 2px 4px rgba(0,0,0,0.5); }
+  .bar-chart .bar-label { position:absolute; bottom:-40px; left:50%; transform:translateX(-50%); font-size:0.75rem; color:rgba(255,255,255,0.6); white-space:nowrap; text-align:center; width:120px; line-height:1.2; }
+  .bar-chart .gap-badge { position:absolute; top:15%; right:15%; display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.6); padding:4px 12px; border-radius:20px; border:1px solid rgba(255,255,255,0.1); animation:bc-fadeIn 0.6s ease-out 1.2s both; }
+  .bar-chart .gap-badge span:first-child { width:8px; height:8px; background:#fb7185; border-radius:50%; }
+  .bar-chart .gap-badge span:last-child { font-size:0.8rem; color:rgba(255,255,255,0.7); }
+  @keyframes bc-fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes bc-growBar { from { transform:scaleY(0); opacity:0; } to { transform:scaleY(1); opacity:1; } }
+  @keyframes bc-pulse { 0%,100% { opacity:0.4; transform:scale(1); } 50% { opacity:0.6; transform:scale(1.05); } }
+</style>
+<div class="bar-chart">
+  <div class="orb"></div>
+  <div style="max-width:1000px; width:100%; position:relative; z-index:1; display:flex; flex-direction:column; align-items:center;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <h2 style="font-size:clamp(0.9rem,2vw,1.1rem); text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.5); margin-bottom:12px; animation:bc-fadeIn 0.6s ease-out both;">{{SUBTITLE}}</h2>
+      <h1>{{TITLE}}</h1>
+      <p style="font-size:1.2rem; color:rgba(255,255,255,0.8); margin-top:12px; font-weight:300; animation:bc-fadeIn 0.6s ease-out 0.2s both;">{{DESCRIPTION}}</p>
+    </div>
+    <div class="chart-area">
+      <div class="gridlines"><div></div><div></div><div></div><div></div></div>
+      {{ITEMS}}
+      <!-- Example bar:
+      <div class="bar" style="height:90%; background:linear-gradient(to top, rgba(251,113,133,0.2), #fb7185); box-shadow:0 0 20px rgba(251,113,133,0.2);">
+        <div class="bar-value">90%</div>
+        <div class="bar-label">Category Name</div>
+      </div>
+      -->
+      <div class="gap-badge"><span></span><span>{{BADGE_LABEL}}</span></div>
+    </div>
+  </div>
+</div>

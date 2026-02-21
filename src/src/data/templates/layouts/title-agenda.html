@@ -1,0 +1,39 @@
+<!-- Layout: title-agenda - Title slide with gradient heading, subtitle, date, and numbered agenda items -->
+<style>
+  .title-agenda { position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .title-agenda .orb-1 { position:absolute; top:40%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(var(--primary-rgb,34,211,238),0.15), transparent 70%); filter:blur(40px); animation:ta-pulse 4s ease-in-out infinite; }
+  .title-agenda .orb-2 { position:absolute; bottom:-20%; left:-10%; width:500px; height:500px; background:radial-gradient(circle, rgba(var(--secondary-rgb,167,139,250),0.1), transparent 70%); filter:blur(60px); }
+  .title-agenda .grid-bg { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size:100px 100px; opacity:0.3; mask-image:radial-gradient(circle, black 40%, transparent 100%); }
+  .title-agenda h1 { font-size:clamp(3.5rem,8vw,6rem); font-weight:900; line-height:1; margin-bottom:24px; background:linear-gradient(135deg, #ffffff 0%, var(--primary,#22d3ee) 50%, var(--secondary,#a78bfa) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:ta-slideUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.1s both; }
+  .title-agenda .subtitle { font-size:clamp(1.2rem,2.5vw,1.8rem); font-weight:300; color:rgba(255,255,255,0.85); max-width:800px; margin:0 auto 16px; animation:ta-slideUp 0.8s cubic-bezier(0.2,0.8,0.2,1) 0.2s both; }
+  .title-agenda .date { font-size:0.9rem; letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:48px; animation:ta-slideUp 0.8s ease-out 0.25s both; }
+  .title-agenda .agenda { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; width:100%; max-width:900px; }
+  .title-agenda .agenda-item { display:flex; align-items:center; padding:20px 30px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-left:4px solid var(--primary,#22d3ee); backdrop-filter:blur(10px); border-radius:4px; animation:ta-slideUp 0.6s ease-out both; }
+  .title-agenda .agenda-item:nth-child(2) { border-left-color:var(--secondary,#a78bfa); animation-delay:0.4s; }
+  .title-agenda .agenda-item:nth-child(3) { border-left-color:#34d399; animation-delay:0.5s; }
+  .title-agenda .agenda-item:nth-child(4) { border-left-color:#fb7185; animation-delay:0.6s; }
+  .title-agenda .agenda-num { font-family:'Courier New',monospace; font-size:1.5rem; font-weight:bold; color:rgba(255,255,255,0.3); margin-right:20px; }
+  .title-agenda .agenda-label { font-size:1.2rem; font-weight:600; color:#ffffff; }
+  @keyframes ta-slideUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes ta-pulse { 0%,100% { opacity:0.4; transform:translate(-50%,-50%) scale(1); } 50% { opacity:0.7; transform:translate(-50%,-50%) scale(1.05); } }
+</style>
+<div class="title-agenda">
+  <div class="grid-bg"></div>
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+  <div style="position:relative; z-index:2; width:100%; text-align:center;">
+    <h2 style="font-size:clamp(0.9rem,1.5vw,1.1rem); letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:20px; animation:ta-slideUp 0.8s ease-out both;">{{SUBTITLE}}</h2>
+    <h1>{{TITLE}}</h1>
+    <p class="subtitle">{{DESCRIPTION}}</p>
+    <p class="date">{{DATE}}</p>
+    <div class="agenda">
+      {{ITEMS}}
+      <!-- Example item structure:
+      <div class="agenda-item" style="animation-delay:0.3s">
+        <span class="agenda-num">01</span>
+        <span class="agenda-label">Topic Name</span>
+      </div>
+      -->
+    </div>
+  </div>
+</div>

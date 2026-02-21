@@ -1,0 +1,31 @@
+<!-- Layout: quote-hero - Full-slide quote with decorative quotation marks and author attribution -->
+<style>
+  .quote-hero { position:relative; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .quote-hero .orb-1 { position:absolute; top:-20%; left:-10%; width:50vw; height:50vw; background:radial-gradient(circle, rgba(var(--primary-rgb,34,211,238),0.1), transparent 70%); border-radius:50%; filter:blur(80px); animation:qh-pulse 8s ease-in-out infinite; }
+  .quote-hero .orb-2 { position:absolute; bottom:-20%; right:-10%; width:40vw; height:40vw; background:radial-gradient(circle, rgba(var(--secondary-rgb,167,139,250),0.08), transparent 70%); border-radius:50%; filter:blur(80px); animation:qh-pulse 8s ease-in-out infinite 4s; }
+  .quote-hero .card { position:relative; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); border-radius:24px; padding:70px 60px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,0.2); max-width:900px; width:100%; animation:qh-slideUp 0.8s ease-out 0.2s both; }
+  .quote-hero .quote-mark { font-family:'Georgia',serif; font-size:140px; line-height:0; position:absolute; top:-10px; left:50%; color:var(--primary,#22d3ee); animation:qh-quoteReveal 1s ease-out 0.4s both; }
+  .quote-hero .quote-text { font-size:clamp(1.8rem,3.5vw,2.4rem); font-weight:700; color:#fff; margin:0 0 32px 0; line-height:1.25; position:relative; z-index:2; animation:qh-slideUp 0.6s ease-out 0.3s both; }
+  .quote-hero .divider { width:80px; height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin:0 auto 32px auto; animation:qh-fadeIn 0.6s ease-out 0.4s both; }
+  .quote-hero .attribution { font-size:clamp(1.1rem,2vw,1.4rem); color:rgba(255,255,255,0.6); margin:0; line-height:1.5; font-weight:400; animation:qh-slideUp 0.6s ease-out 0.5s both; }
+  .quote-hero .author { font-size:1rem; color:rgba(255,255,255,0.4); margin-top:16px; font-style:italic; animation:qh-slideUp 0.6s ease-out 0.6s both; }
+  @keyframes qh-slideUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes qh-fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes qh-quoteReveal { from { opacity:0; transform:translate(-50%,-20px); } to { opacity:0.15; transform:translate(-50%,0); } }
+  @keyframes qh-pulse { 0%,100% { opacity:0.15; transform:scale(1); } 50% { opacity:0.25; transform:scale(1.1); } }
+</style>
+<div class="quote-hero">
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+  <div style="z-index:2; margin-bottom:50px; text-align:center;">
+    <h2 style="font-size:clamp(0.8rem,1.5vw,1rem); color:rgba(255,255,255,0.6); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:16px; animation:qh-slideUp 0.6s ease-out both;">{{SUBTITLE}}</h2>
+    <h1 style="font-size:clamp(2.5rem,5vw,3.5rem); font-weight:800; line-height:1.1; background:linear-gradient(135deg, var(--primary,#22d3ee), var(--secondary,#a78bfa)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin:0; animation:qh-slideUp 0.6s ease-out 0.1s both;">{{TITLE}}</h1>
+  </div>
+  <div class="card">
+    <div class="quote-mark">&ldquo;</div>
+    <p class="quote-text">{{QUOTE}}</p>
+    <div class="divider"></div>
+    <p class="attribution">{{ATTRIBUTION}}</p>
+    <p class="author">— {{AUTHOR}}</p>
+  </div>
+</div>

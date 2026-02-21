@@ -1,0 +1,37 @@
+<!-- Layout: split-visual - Split layout with text content on left and visual placeholder on right -->
+<style>
+  .split-visual { position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; padding:60px 80px; overflow:hidden; }
+  .split-visual .orb-1 { position:absolute; top:-20%; right:-10%; width:600px; height:600px; background:radial-gradient(circle, rgba(var(--primary-rgb,34,211,238),0.05), transparent 70%); border-radius:50%; pointer-events:none; }
+  .split-visual .orb-2 { position:absolute; bottom:-20%; left:-10%; width:500px; height:500px; background:radial-gradient(circle, rgba(var(--secondary-rgb,167,139,250),0.05), transparent 70%); border-radius:50%; pointer-events:none; }
+  .split-visual .content { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; width:100%; max-width:1000px; align-items:center; z-index:2; }
+  .split-visual h1 { font-size:clamp(2.5rem,4vw,3.5rem); font-weight:800; line-height:1.1; margin-bottom:40px; background:linear-gradient(135deg, var(--primary,#22d3ee), var(--secondary,#a78bfa)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:sv-fadeIn 0.6s ease-out 0.1s both; }
+  .split-visual .list-item { display:flex; align-items:flex-start; margin-bottom:24px; animation:sv-slideIn 0.6s ease-out both; }
+  .split-visual .list-icon { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-right:16px; flex-shrink:0; }
+  .split-visual .list-item strong { display:block; color:#fff; margin-bottom:4px; font-size:1.1rem; }
+  .split-visual .list-item span { color:rgba(255,255,255,0.7); line-height:1.5; }
+  .split-visual .visual-box { position:relative; width:100%; aspect-ratio:4/3; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); box-shadow:0 20px 40px rgba(0,0,0,0.4); background:rgba(255,255,255,0.03); backdrop-filter:blur(10px); animation:sv-scaleIn 0.8s ease-out 0.2s both; display:flex; align-items:center; justify-content:center; }
+  .split-visual .visual-placeholder { font-size:1rem; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:2px; }
+  @keyframes sv-fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes sv-slideIn { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes sv-scaleIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+</style>
+<div class="split-visual">
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+  <div class="content">
+    <div>
+      <h2 style="font-size:clamp(0.9rem,2vw,1.1rem); text-transform:uppercase; letter-spacing:0.15em; color:rgba(255,255,255,0.6); margin-bottom:12px; animation:sv-fadeIn 0.6s ease-out both;">{{SUBTITLE}}</h2>
+      <h1>{{TITLE}}</h1>
+      {{ITEMS}}
+      <!-- Example item structure:
+      <div class="list-item" style="animation-delay:0.2s">
+        <div class="list-icon" style="background:rgba(167,139,250,0.1); color:#a78bfa;">ICON</div>
+        <div><strong>Point Title</strong><span>Supporting description text.</span></div>
+      </div>
+      -->
+    </div>
+    <div class="visual-box">
+      <div class="visual-placeholder">{{VISUAL}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>
+/* ── Reset & Base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#02040a;color:#fff}
+
+/* ── Theme Custom Properties (injected per presentation) ── */
+{{THEME_CSS}}
+
+/* ── Deck & Slide Transitions ── */
+.deck{position:relative;width:100%;height:100%}
+.slide{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1);
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:auto;z-index:1}
+
+/* ── Progress Bar ── */
+.progress{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,#22d3ee,#a78bfa);
+  transition:width 0.4s ease;
+  z-index:10001;
+}
+
+/* ── Navigation Buttons ── */
+.nav{position:fixed;bottom:24px;right:24px;display:flex;gap:8px;z-index:10000}
+.nav button{
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.1);
+  color:#fff;font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+  backdrop-filter:blur(10px);
+}
+.nav button:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4)}
+.nav button:disabled{opacity:0.3;cursor:not-allowed}
+.nav button.active{background:rgba(139,92,246,0.5);border-color:rgba(139,92,246,0.7)}
+
+/* ── Slide Counter ── */
+.counter{
+  position:fixed;bottom:32px;left:24px;
+  font-size:0.85rem;opacity:0.4;z-index:10000;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .nav{bottom:16px;right:16px}
+  .counter{bottom:24px;left:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress" id="progress"></div>
+
+<!-- Slide Deck Container -->
+<div class="deck" id="deck">
+{{SLIDES}}
+</div>
+
+<!-- Slide Counter -->
+<div class="counter" id="counter">1 / {{TOTAL_SLIDES}}</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" aria-label="Previous slide" disabled>&#8592;</button>
+  <button id="next" aria-label="Next slide">&#8594;</button>
+  <button id="notesBtn" aria-label="Toggle speaker notes" title="Speaker Notes" style="font-size:1rem">&#128221;</button>
+</div>
+
+<script>
+(function(){
+  /* ── State ── */
+  var current = 0;
+  var slides  = document.querySelectorAll('.slide');
+  var total   = slides.length;
+  var prevBtn  = document.getElementById('prev');
+  var nextBtn  = document.getElementById('next');
+  var counter  = document.getElementById('counter');
+  var progress = document.getElementById('progress');
+
+  /* Activate first slide */
+  if (total > 0) slides[0].classList.add('active');
+
+  /* ── Core Navigation ── */
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    /* Notify parent iframe (in-app viewer) */
+    window.parent.postMessage({ type: 'deckState', currentSlide: current + 1, totalSlides: total }, '*');
+    /* Sync speaker notes window */
+    updateNotesWindow();
+  }
+
+  /* Button clicks */
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+  /* ── Keyboard Handler ── */
+  document.addEventListener('keydown', function(e) {
+    switch (e.key) {
+      case 'ArrowRight': case ' ':     goTo(current + 1); e.preventDefault(); break;
+      case 'ArrowLeft':                 goTo(current - 1); e.preventDefault(); break;
+      case 'Home':                      goTo(0);           e.preventDefault(); break;
+      case 'End':                       goTo(total - 1);   e.preventDefault(); break;
+      case 'Escape':
+        if (document.fullscreenElement) document.exitFullscreen();
+        break;
+    }
+  });
+
+  /* ── PostMessage Handler (iframe key forwarding & slide jumps) ── */
+  window.addEventListener('message', function(e) {
+    if (!e.data) return;
+    if (e.data.type === 'keyEvent') {
+      if (e.data.code === 'ArrowRight' || e.data.code === 'Space') goTo(current + 1);
+      if (e.data.code === 'ArrowLeft') goTo(current - 1);
+    }
+    if (e.data.type === 'goToSlide') goTo(e.data.slide);
+    if (e.data.type === 'notesNav') {
+      if (e.data.dir === 'prev') goTo(current - 1);
+      if (e.data.dir === 'next') goTo(current + 1);
+    }
+  });
+
+  /* ── Touch / Swipe Handler ── */
+  var startX = 0;
+  document.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e){
+    var diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 50) { diff < 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  /* ── Initial progress bar ── */
+  progress.style.width = (1 / total * 100) + '%';
+  window.parent.postMessage({ type: 'deckState', currentSlide: 1, totalSlides: total }, '*');
+
+  /* ═══════════════════════════════════════════
+     Speaker Notes Popup System
+     ═══════════════════════════════════════════ */
+  var notesData = {{SPEAKER_NOTES_JSON}};
+  var notesWin  = null;
+  var notesBtn  = document.getElementById('notesBtn');
+  var presentationTitle = document.title;
+
+  /* Hide notes button when inside an iframe (in-app viewer) */
+  if (window.self !== window.top && notesBtn) notesBtn.style.display = 'none';
+
+  function buildNotesHtml() {
+    return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Speaker Notes - '
+      + presentationTitle + '</title>'
+      + '<style>'
+      + '*{box-sizing:border-box;margin:0;padding:0}'
+      + 'body{font-family:system-ui,-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;padding:32px;height:100vh;display:flex;flex-direction:column}'
+      + '.header{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1)}'
+      + '.slide-num{font-size:0.85rem;color:#a78bfa;font-weight:600;letter-spacing:0.05em}'
+      + '.slide-title{font-size:1.5rem;font-weight:700;margin-bottom:16px;color:#f1f5f9}'
+      + '.notes-text{font-size:1.15rem;line-height:1.8;color:#cbd5e1;flex:1;overflow-y:auto;white-space:pre-wrap}'
+      + '.nav{display:flex;gap:8px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)}'
+      + '.nav button{padding:8px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;cursor:pointer;font-size:0.9rem;transition:all 0.2s}'
+      + '.nav button:hover{background:rgba(255,255,255,0.2)}'
+      + '.nav button:disabled{opacity:0.3;cursor:not-allowed}'
+      + '.nav .counter{flex:1;text-align:center;line-height:38px;font-size:0.85rem;color:#64748b}'
+      + '</style></head><body>'
+      + '<div class="header"><span class="slide-num" id="sn-num"></span></div>'
+      + '<div class="slide-title" id="sn-title"></div>'
+      + '<div class="notes-text" id="sn-notes"></div>'
+      + '<div class="nav">'
+      + '<button id="sn-prev">&#8592; Previous</button>'
+      + '<span class="counter" id="sn-counter"></span>'
+      + '<button id="sn-next">Next &#8594;</button>'
+      + '</div>'
+      + '<script>'
+      + 'var allNotes=' + JSON.stringify(notesData) + ';'
+      + 'var totalSlides=' + total + ';'
+      + 'function showNote(s){'
+      + '  var n=allNotes[s-1]||{title:"",notes:"No notes for this slide."};'
+      + '  document.getElementById("sn-num").textContent="SLIDE "+s+" OF "+totalSlides;'
+      + '  document.getElementById("sn-title").textContent=n.title;'
+      + '  document.getElementById("sn-notes").textContent=n.notes;'
+      + '  document.getElementById("sn-counter").textContent=s+" / "+totalSlides;'
+      + '}'
+      + 'showNote(1);'
+      + 'document.getElementById("sn-prev").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"prev"},"*")});'
+      + 'document.getElementById("sn-next").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"next"},"*")});'
+      + 'window.addEventListener("message",function(e){if(e.data&&e.data.type==="noteUpdate")showNote(e.data.slide)});'
+      + '<\/script></body></html>';
+  }
+
+  function updateNotesWindow() {
+    if (notesWin && !notesWin.closed) {
+      notesWin.postMessage({ type: 'noteUpdate', slide: current + 1 }, '*');
+    }
+  }
+
+  if (notesBtn) notesBtn.addEventListener('click', function() {
+    if (notesWin && !notesWin.closed) {
+      notesWin.close();
+      notesWin = null;
+      notesBtn.classList.remove('active');
+    } else {
+      notesWin = window.open('', '_blank', 'width=500,height=600');
+      if (notesWin) {
+        notesWin.document.open();
+        notesWin.document.write(buildNotesHtml());
+        notesWin.document.close();
+        notesBtn.classList.add('active');
+        /* Poll to detect when popup is closed */
+        var checkClosed = setInterval(function() {
+          if (notesWin && notesWin.closed) {
+            notesWin = null;
+            notesBtn.classList.remove('active');
+            clearInterval(checkClosed);
+          }
+        }, 500);
+      }
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
