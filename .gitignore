@@ -11,6 +11,8 @@ build/
 .env.local
 .env.production
 
+# docs
+.Contestant_GitHub_Copilot_SDK_Enterprise_Challenge.docx
 # misc
 .DS_Store
 *.pem
