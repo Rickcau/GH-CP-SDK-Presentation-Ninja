@@ -10,28 +10,6 @@ This goal drives our choices: local Markdown over a vector store, Tavily over Az
 
 ## High-Level Architecture
 
-```
-┌───────────────────────────────────────┐
-│   React / Next.js 16 Frontend         │
-│   (App Router, Tailwind CSS v4)       │
-│   Slide React Components              │
-├───────────────────────────────────────┤
-│   Next.js API Routes                  │
-│   (SSE Streaming, Server Actions)     │
-├──────────┬───────────┬────────────────┤
-│ Copilot  │ Knowledge │  Output        │
-│ SDK      │ Library   │  Pipelines     │
-│ Agent    │ (Local    │  ├ HTML Deck   │
-│          │  Markdown │  ├ React Slides│
-│          │  + Tavily │  └ PPTX Export │
-│          │  Web      │                │
-│          │  Search)  │                │
-├──────────┴───────────┴────────────────┤
-│   SQLite (local) / PostgreSQL         │
-│   Filesystem / Azure Blob             │
-└───────────────────────────────────────┘
-```
-
 ```mermaid
 graph TD
     subgraph Frontend["React / Next.js 16 Frontend"]

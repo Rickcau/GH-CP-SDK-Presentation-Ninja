@@ -1,4 +1,4 @@
-# Code Style & Conventions — PowerPoint Ninja
+# Code Style & Conventions — Presentation Ninja
 
 ## TypeScript
 

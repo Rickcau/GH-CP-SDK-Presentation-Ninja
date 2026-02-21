@@ -1,5 +1,5 @@
 # Product Requirements Document (PRD)
-# GH CP SDK - PowerPoint Ninja
+# GH CP SDK - Presentation Ninja
 
 **Version:** 3.1
 **Date:** February 19, 2026
@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-**PowerPoint Ninja** is a **topic-scoped AI presentation generator** built on the GitHub Copilot SDK. It generates stunning, professional presentations specifically about **four core topics**:
+**Presentation Ninja** is a **topic-scoped AI presentation generator** built on the GitHub Copilot SDK. It generates stunning, professional presentations specifically about **four core topics**:
 
 1. **Microsoft Foundry** (Azure AI Foundry)
 2. **GitHub Copilot CLI**
@@ -45,7 +45,7 @@ Teams adopting Microsoft Foundry and GitHub Copilot products need to create pres
 
 Creating these presentations is time-consuming and repetitive. The content is well-defined but the formatting, design, and structure take hours to perfect.
 
-**PowerPoint Ninja** eliminates this burden: describe the deck you need, and get a professionally designed presentation with expert-level content about Copilot and Foundry topics in seconds.
+**Presentation Ninja** eliminates this burden: describe the deck you need, and get a professionally designed presentation with expert-level content about Copilot and Foundry topics in seconds.
 
 ---
 
@@ -102,7 +102,7 @@ This content is stored as structured markdown/JSON in the repo (`data/knowledge/
 ### 4.2 Navigation
 
 ```
-GH CP SDK - PowerPoint Ninja   [Dashboard]  Gallery  Presentations
+GH CP SDK - Presentation Ninja   [Dashboard]  Gallery  Presentations
 ```
 
 - **Dashboard** (default) — Overview metrics, recent presentations, quick-create

@@ -1,4 +1,4 @@
-# Copilot Instructions — PowerPoint Ninja
+# Copilot Instructions — Presentation Ninja
 
 ---
 
@@ -28,7 +28,7 @@
 
 ## What This Project Is
 
-**PowerPoint Ninja** is an AI-powered presentation generator built on the **GitHub Copilot SDK**. It generates professional, visually rich presentations about four topics:
+**Presentation Ninja** is an AI-powered presentation generator built on the **GitHub Copilot SDK**. It generates professional, visually rich presentations about four topics:
 
 1. **Microsoft Foundry** (Azure AI Foundry)
 2. **GitHub Copilot CLI**

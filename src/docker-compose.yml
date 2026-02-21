@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - COPILOT_GITHUB_TOKEN=${COPILOT_GITHUB_TOKEN}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
       - NEXTAUTH_SECRET=docker-dev-secret
       - NEXTAUTH_URL=http://localhost:3000
       - DATABASE_URL=file:./data/app.db

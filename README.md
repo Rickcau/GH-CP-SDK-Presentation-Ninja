@@ -1,3 +1,4 @@
+cd src
 # Presentation Ninja
 
 **AI-powered presentation generator built on the GitHub Copilot SDK**
@@ -15,6 +16,8 @@ Generate stunning, professional presentations about Microsoft Foundry, GitHub Co
 **Solution:** Presentation Ninja uses the GitHub Copilot SDK to generate professional, content-rich presentations in seconds. It combines curated knowledge libraries with real-time web search (Tavily) to produce accurate, current slides. Users control the flow with drag-to-reorder topics, precanned demo/YouTube slides, and multiple output formats — all powered by the same agentic engine behind GitHub Copilot CLI.
 
 ---
+
+[![Video Title](https://img.youtube.com/vi/dn---1JzZOc/maxresdefault.jpg)](https://www.youtube.com/watch?v=dn---1JzZOc)
 
 ## Prerequisites
 
@@ -106,18 +109,31 @@ This approach works everywhere — locally, in Docker, and in Azure.
 
 ## Quick Start
 
+### One-Command Setup (Recommended)
+
+```powershell
+git clone <repo-url>
+cd GH-CP-SDK-Presentation-Ninja/src
+.\setup.ps1
+npm run dev
+```
+
+The setup script checks your Node.js version, installs dependencies, prompts for your GitHub token and Tavily API key, and generates the `.env` file — all in one step.
+
+### Manual Setup
+
 ```bash
 # 1. Clone the repository
 git clone <repo-url>
-cd GH-CP-SDK-Presentation-Generator/src
+cd GH-CP-SDK-Presentation-Ninja/src
 
 # 2. Install npm dependencies
-#    This installs the Copilot SDK + its bundled CLI automatically
 npm install
 
 # 3. Configure your GitHub token
 cp .env.example .env
 #    Edit .env and set: GITHUB_TOKEN=ghp_your_token_here
+#    Make sure to add your GH Token and your Tavily token.
 
 # 4. Start the development server
 npm run dev

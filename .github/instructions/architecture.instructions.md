@@ -1,8 +1,8 @@
-# Architecture — PowerPoint Ninja
+# Architecture — Presentation Ninja
 
 ## System Overview
 
-PowerPoint Ninja is built as a **Next.js 16 App Router** application that uses the **GitHub Copilot SDK** as its AI orchestration layer. The SDK spawns a bundled Copilot CLI subprocess and communicates via JSON-RPC to access GitHub-hosted AI models (OpenAI + Anthropic).
+Presentation Ninja is built as a **Next.js 16 App Router** application that uses the **GitHub Copilot SDK** as its AI orchestration layer. The SDK spawns a bundled Copilot CLI subprocess and communicates via JSON-RPC to access GitHub-hosted AI models (OpenAI + Anthropic).
 
 ## Architecture Diagram
 
