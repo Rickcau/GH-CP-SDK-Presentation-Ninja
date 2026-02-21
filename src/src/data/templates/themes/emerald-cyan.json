@@ -1,0 +1,26 @@
+{
+  "name": "Emerald Cyan",
+  "id": "emerald-cyan",
+  "description": "A fresh, organic theme with emerald green and cool cyan — ideal for nature, sustainability, growth, and landscape topics.",
+  "colors": {
+    "primary": "#34d399",
+    "secondary": "#22d3ee",
+    "tertiary": "#a78bfa",
+    "background": "#02040a",
+    "surface": "rgba(255,255,255,0.03)",
+    "surfaceHover": "rgba(255,255,255,0.06)",
+    "border": "rgba(255,255,255,0.06)",
+    "borderHover": "rgba(255,255,255,0.12)",
+    "text": "rgba(255,255,255,0.9)",
+    "textMuted": "rgba(255,255,255,0.5)",
+    "textSubtle": "rgba(255,255,255,0.3)"
+  },
+  "gradients": {
+    "title": "linear-gradient(135deg, #34d399, #22d3ee)",
+    "progressBar": "linear-gradient(90deg, #34d399, #22d3ee)",
+    "accent": "linear-gradient(135deg, rgba(52,211,153,0.2), rgba(34,211,238,0.2))",
+    "orb1": "radial-gradient(circle, rgba(52,211,153,0.15), transparent)",
+    "orb2": "radial-gradient(circle, rgba(34,211,238,0.10), transparent)"
+  },
+  "css": ":root { --primary: #34d399; --primary-rgb: 52,211,153; --secondary: #22d3ee; --secondary-rgb: 34,211,238; --tertiary: #a78bfa; --tertiary-rgb: 167,139,250; --background: #02040a; --background-alt: #071a12; --surface: rgba(255,255,255,0.03); --surface-hover: rgba(255,255,255,0.06); --border: rgba(255,255,255,0.06); --border-hover: rgba(255,255,255,0.12); --text: rgba(255,255,255,0.9); --text-muted: rgba(255,255,255,0.5); --text-subtle: rgba(255,255,255,0.3); --gradient-title: linear-gradient(135deg, #34d399, #22d3ee); --gradient-progress: linear-gradient(90deg, #34d399, #22d3ee); --gradient-accent: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(34,211,238,0.2)); --orb1: radial-gradient(circle, rgba(52,211,153,0.15), transparent); --orb2: radial-gradient(circle, rgba(34,211,238,0.10), transparent); --nav-active-bg: rgba(52,211,153,0.5); --nav-active-border: rgba(52,211,153,0.7); }"
+}

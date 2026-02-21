@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "presentation-tools": {
+      "type": "local",
+      "command": "node",
+      "args": ["./src/lib/agent/mcp-server.js"],
+      "env": {
+        "KNOWLEDGE_DIR": "./src/data/knowledge",
+        "TEMPLATE_DIR": "./src/data/templates"
+      }
+    }
+  }
+}

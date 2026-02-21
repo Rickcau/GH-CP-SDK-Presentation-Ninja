@@ -1,0 +1,26 @@
+{
+  "name": "Cyan Violet",
+  "id": "cyan-violet",
+  "description": "A high-tech, futuristic theme with electric cyan and soft violet accents — ideal for technology, AI, and innovation topics.",
+  "colors": {
+    "primary": "#22d3ee",
+    "secondary": "#a78bfa",
+    "tertiary": "#34d399",
+    "background": "#02040a",
+    "surface": "rgba(255,255,255,0.03)",
+    "surfaceHover": "rgba(255,255,255,0.06)",
+    "border": "rgba(255,255,255,0.06)",
+    "borderHover": "rgba(255,255,255,0.12)",
+    "text": "rgba(255,255,255,0.9)",
+    "textMuted": "rgba(255,255,255,0.5)",
+    "textSubtle": "rgba(255,255,255,0.3)"
+  },
+  "gradients": {
+    "title": "linear-gradient(135deg, #22d3ee, #a78bfa)",
+    "progressBar": "linear-gradient(90deg, #22d3ee, #a78bfa)",
+    "accent": "linear-gradient(135deg, rgba(34,211,238,0.2), rgba(167,139,250,0.2))",
+    "orb1": "radial-gradient(circle, rgba(34,211,238,0.15), transparent)",
+    "orb2": "radial-gradient(circle, rgba(167,139,250,0.10), transparent)"
+  },
+  "css": ":root { --primary: #22d3ee; --primary-rgb: 34,211,238; --secondary: #a78bfa; --secondary-rgb: 167,139,250; --tertiary: #34d399; --tertiary-rgb: 52,211,153; --background: #02040a; --background-alt: #101827; --surface: rgba(255,255,255,0.03); --surface-hover: rgba(255,255,255,0.06); --border: rgba(255,255,255,0.06); --border-hover: rgba(255,255,255,0.12); --text: rgba(255,255,255,0.9); --text-muted: rgba(255,255,255,0.5); --text-subtle: rgba(255,255,255,0.3); --gradient-title: linear-gradient(135deg, #22d3ee, #a78bfa); --gradient-progress: linear-gradient(90deg, #22d3ee, #a78bfa); --gradient-accent: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(167,139,250,0.2)); --orb1: radial-gradient(circle, rgba(34,211,238,0.15), transparent); --orb2: radial-gradient(circle, rgba(167,139,250,0.10), transparent); --nav-active-bg: rgba(139,92,246,0.5); --nav-active-border: rgba(139,92,246,0.7); }"
+}

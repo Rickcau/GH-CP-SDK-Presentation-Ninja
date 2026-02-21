@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI trends in the Automotive Space</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#02040a;color:#fff}
+.deck{position:relative;width:100%;height:100%}
+.slide{opacity:0;pointer-events:none;transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1);overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto;z-index:1}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#22d3ee,#a78bfa);transition:width 0.4s ease;z-index:10001}
+.nav{position:fixed;bottom:24px;right:24px;display:flex;gap:8px;z-index:10000}
+.nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;backdrop-filter:blur(10px)}
+.nav button:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4)}
+.nav button:disabled{opacity:0.3;cursor:not-allowed}
+.nav button.active{background:rgba(139,92,246,0.5);border-color:rgba(139,92,246,0.7)}
+.counter{position:fixed;bottom:32px;left:24px;font-size:0.85rem;opacity:0.4;z-index:10000;font-variant-numeric:tabular-nums}
+@media(max-width:768px){.nav{bottom:16px;right:16px}.counter{bottom:24px;left:16px}}
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+<div class="slide" data-index="0" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background-color:#02040a;background-image:radial-gradient(circle at 50% 0%, #101827 0%, #02040a 80%);font-family:system-ui,-apple-system,sans-serif;overflow:hidden;color:#ffffff;">
+  <style>
+    @keyframes fadeIn-0 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-0 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-0 { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.1); } }
+    @keyframes drive-0 { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+    @keyframes float-0 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    
+    .bg-grid-0 {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      mask-image: linear-gradient(to bottom, transparent, black 40%, black 80%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 40%, black 80%, transparent);
+    }
+    
+    .point-item-0 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease;
+    }
+  </style>
+
+  <!-- Background Elements -->
+  <!-- Abstract Digital Grid -->
+  <div class="bg-grid-0" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;opacity:0.6;"></div>
+  
+  <!-- Glowing Orb/Headlight effect -->
+  <div style="position:absolute;top:10%;right:10%;width:500px;height:500px;background:radial-gradient(circle, rgba(34,211,238,0.15), transparent 70%);filter:blur(60px);z-index:0;animation:pulse-0 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-10%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(167,139,250,0.1), transparent 70%);filter:blur(80px);z-index:0;"></div>
+
+  <!-- Abstract Vehicle Silhouette SVG -->
+  <svg style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120%;height:40vh;z-index:0;opacity:0.4;pointer-events:none;" viewBox="0 0 1200 400" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="carGrad-0" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#02040a;stop-opacity:0" />
+        <stop offset="20%" style="stop-color:#22d3ee;stop-opacity:0.1" />
+        <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:0.2" />
+        <stop offset="80%" style="stop-color:#22d3ee;stop-opacity:0.1" />
+        <stop offset="100%" style="stop-color:#02040a;stop-opacity:0" />
+      </linearGradient>
+    </defs>
+    <!-- Smooth aerodynamic curve -->
+    <path d="M0,350 Q300,350 400,250 T800,250 T1200,350 V400 H0 Z" fill="url(#carGrad-0)" />
+    <!-- Network nodes on the car -->
+    <circle cx="450" cy="260" r="3" fill="#22d3ee" style="animation:pulse-0 2s infinite">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="280" r="2" fill="#a78bfa" style="animation:pulse-0 3s infinite 0.5s" />
+    <circle cx="750" cy="260" r="3" fill="#22d3ee" style="animation:pulse-0 2.5s infinite 1s" />
+    <!-- Connecting lines -->
+    <path d="M450,260 L600,280 L750,260" stroke="rgba(34,211,238,0.3)" stroke-width="1" fill="none" />
+  </svg>
+
+  <!-- Content Container -->
+  <div style="position:relative;z-index:1;max-width:900px;width:100%;text-align:center;">
+    
+    <!-- Subtitle -->
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#22d3ee;margin-bottom:24px;animation:slideUp-0 0.8s ease-out both;">
+      Navigating the Intelligent Transformation Towards 2026
+    </h2>
+
+    <!-- Main Title -->
+    <h1 style="font-size:clamp(3rem, 7vw, 5rem);font-weight:800;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow: 0 10px 30px rgba(0,0,0,0.5);animation:slideUp-0 0.8s ease-out 0.1s both;">
+      AI Trends in the <br>
+      <span style="background:linear-gradient(135deg, #22d3ee, #a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Automotive Space</span>
+    </h1>
+
+    <!-- Decorative Line -->
+    <div style="width:80px;height:4px;background:linear-gradient(90deg, #22d3ee, #a78bfa);margin:32px auto 48px;border-radius:2px;animation:fadeIn-0 1s ease-out 0.3s both;"></div>
+
+    <!-- Agenda / Key Points -->
+    <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:20px;text-align:left;animation:slideUp-0 0.8s ease-out 0.4s both;">
+      
+      <div class="point-item-0">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(34,211,238,0.1);color:#22d3ee;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.9rem;">1</div>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.9);">Strategic Vision & Market Shifts</span>
+      </div>
+
+      <div class="point-item-0" style="animation-delay:0.5s;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(167,139,250,0.1);color:#a78bfa;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.9rem;">2</div>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.9);">Key Technologies & Applications</span>
+      </div>
+
+      <div class="point-item-0" style="animation-delay:0.6s;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(52,211,153,0.1);color:#34d399;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.9rem;">3</div>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.9);">Electrification & Autonomous Systems</span>
+      </div>
+
+      <div class="point-item-0" style="animation-delay:0.7s;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(251,113,133,0.1);color:#fb7185;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:0.9rem;">4</div>
+        <span style="font-size:1.1rem;color:rgba(255,255,255,0.9);">Executive Leadership & Governance</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <div style="position:absolute;bottom:40px;width:100%;text-align:center;font-size:0.8rem;color:rgba(255,255,255,0.3);animation:fadeIn-0 1s ease-out 1s both;">
+    Automotive AI Intelligence Report 2024-2026
+  </div>
+</div>
+<div class="slide" data-index="1" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-1 { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideRight-1 { from { width:0; } to { width:100%; } }
+    @keyframes popIn-1 { from { transform:scale(0); opacity:0; } to { transform:scale(1); opacity:1; } }
+    @keyframes pulse-1 { 0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); } 70% { box-shadow: 0 0 0 20px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
+    @keyframes float-1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  </style>
+
+  <!-- Decorative Background -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+
+  <!-- Main Content Container -->
+  <div style="position:relative;z-index:1;width:100%;max-width:1000px;display:flex;flex-direction:column;height:100%;">
+    
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:50px;">
+      <h2 style="font-size:1rem;text-transform:uppercase;letter-spacing:0.3em;color:rgba(255,255,255,0.6);margin-bottom:16px;animation:fadeIn-1 0.8s ease-out both;">Strategic Outlook</h2>
+      <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #ffffff 0%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-1 0.8s ease-out 0.1s both;">The 2026 Strategic Horizon</h1>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.8);margin-top:16px;font-weight:300;animation:fadeIn-1 0.8s ease-out 0.2s both;">A Landmark Year for Intelligent Transformation</p>
+    </div>
+
+    <!-- Grid Content -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:60px;flex-grow:1;">
+      <!-- Card 1 -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;backdrop-filter:blur(10px);animation:fadeIn-1 0.6s ease-out 0.3s both;">
+        <div style="display:flex;align-items:center;margin-bottom:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(34,211,238,0.2);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#22d3ee;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:600;color:white;margin:0;">The AI Tipping Point</h3>
+        </div>
+        <p style="font-size:0.95rem;line-height:1.5;color:rgba(255,255,255,0.6);margin:0;">Industry consensus identifies 2026 as the critical year for mass AI integration across vertical markets.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;backdrop-filter:blur(10px);animation:fadeIn-1 0.6s ease-out 0.4s both;">
+        <div style="display:flex;align-items:center;margin-bottom:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(167,139,250,0.2);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#a78bfa;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21h18M5 21V7l8-4 8 4v14M13 10v11"></path></svg>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:600;color:white;margin:0;">Strategic Pivots</h3>
+        </div>
+        <p style="font-size:0.95rem;line-height:1.5;color:rgba(255,255,255,0.6);margin:0;">Global leaders like Hyundai Motor Group are shifting focus from manufacturing to 'AI-driven innovation'.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;backdrop-filter:blur(10px);animation:fadeIn-1 0.6s ease-out 0.5s both;">
+        <div style="display:flex;align-items:center;margin-bottom:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#34d399;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:600;color:white;margin:0;">Ecosystem Leadership</h3>
+        </div>
+        <p style="font-size:0.95rem;line-height:1.5;color:rgba(255,255,255,0.6);margin:0;">Moving beyond isolated pilot programs to comprehensive, ecosystem-wide market leadership.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;backdrop-filter:blur(10px);animation:fadeIn-1 0.6s ease-out 0.6s both;">
+        <div style="display:flex;align-items:center;margin-bottom:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(251,191,36,0.2);display:flex;align-items:center;justify-content:center;margin-right:12px;color:#fbbf24;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:600;color:white;margin:0;">Organizational DNA</h3>
+        </div>
+        <p style="font-size:0.95rem;line-height:1.5;color:rgba(255,255,255,0.6);margin:0;">Embedding AI as a core operational pillar rather than an auxiliary tool.</p>
+      </div>
+    </div>
+
+    <!-- Timeline Visual -->
+    <div style="position:relative;width:100%;height:120px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;margin-top:auto;">
+      <!-- Connecting Line Background -->
+      <div style="position:absolute;top:40px;left:40px;right:40px;height:2px;background:rgba(255,255,255,0.1);"></div>
+      <!-- Connecting Line Progress -->
+      <div style="position:absolute;top:40px;left:40px;height:2px;background:linear-gradient(90deg, #22d3ee, #34d399);width:90%;animation:slideRight-1 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;transform-origin:left;"></div>
+
+      <!-- Node 2024 -->
+      <div style="position:relative;text-align:center;animation:popIn-1 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s both;">
+        <div style="width:16px;height:16px;background:#02040a;border:2px solid #22d3ee;border-radius:50%;margin:32px auto 12px;position:relative;z-index:2;"></div>
+        <div style="font-weight:700;color:#22d3ee;font-size:1.1rem;">2024</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:4px;">Pilot Programs</div>
+      </div>
+
+      <!-- Node 2025 -->
+      <div style="position:relative;text-align:center;animation:popIn-1 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.1s both;">
+        <div style="width:16px;height:16px;background:#02040a;border:2px solid #a78bfa;border-radius:50%;margin:32px auto 12px;position:relative;z-index:2;"></div>
+        <div style="font-weight:700;color:#a78bfa;font-size:1.1rem;">2025</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:4px;">Scaling & Adoption</div>
+      </div>
+
+      <!-- Node 2026 (Focus) -->
+      <div style="position:relative;text-align:center;animation:popIn-1 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.4s both;">
+        <div style="width:24px;height:24px;background:#34d399;border:4px solid rgba(52,211,153,0.3);border-radius:50%;margin:28px auto 12px;position:relative;z-index:2;box-shadow:0 0 20px rgba(52,211,153,0.4);animation:pulse-1 2s infinite;"></div>
+        <div style="font-weight:800;color:#34d399;font-size:1.4rem;">2026</div>
+        <div style="font-size:0.9rem;color:white;margin-top:4px;font-weight:600;">Ecosystem Integration</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="2" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;color:#ffffff;">
+  <style>
+    @keyframes fadeIn-2 { from { opacity:0; } to { opacity:1; } }
+    @keyframes slideUp-2 { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes quoteReveal-2 { from { opacity:0; transform:translate(-50%, -20px); } to { opacity:0.15; transform:translate(-50%, 0); } }
+    @keyframes pulse-2 { 0%,100% { opacity:0.15; transform:scale(1); } 50% { opacity:0.25; transform:scale(1.1); } }
+  </style>
+  
+  <!-- Ambient Background -->
+  <div style="position:absolute;top:-20%;left:-10%;width:50vw;height:50vw;background:radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%);border-radius:50%;filter:blur(80px);animation:pulse-2 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:40vw;height:40vw;background:radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);border-radius:50%;filter:blur(80px);animation:pulse-2 8s ease-in-out infinite 4s;"></div>
+
+  <!-- Main Content -->
+  <div style="max-width:900px;width:100%;position:relative;z-index:10;display:flex;flex-direction:column;justify-content:center;height:100%;">
+    
+    <!-- Header -->
+    <div style="margin-bottom:50px;text-align:center;">
+      <h2 style="font-size:clamp(0.8rem, 1.5vw, 1rem);color:rgba(255,255,255,0.6);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;animation:slideUp-2 0.6s ease-out both;">Redefining the Value Chain</h2>
+      <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;animation:slideUp-2 0.6s ease-out 0.1s both;">From Smarter Vehicles<br>to Smarter Enterprises</h1>
+    </div>
+
+    <!-- Quote Card -->
+    <div style="position:relative;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:24px;padding:70px 60px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.2);animation:slideUp-2 0.8s ease-out 0.2s both;">
+      
+      <!-- Decorative Quote Mark -->
+      <div style="font-family:'Georgia',serif;font-size:140px;line-height:0;position:absolute;top:-10px;left:50%;color:#22d3ee;animation:quoteReveal-2 1s ease-out 0.4s both;">“</div>
+      
+      <!-- Key Point 1 (Hero) -->
+      <p style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);font-weight:700;color:#fff;margin:0 0 32px 0;line-height:1.25;position:relative;z-index:2;animation:slideUp-2 0.6s ease-out 0.3s both;">
+        Shift in focus: <span style="background:linear-gradient(90deg, #22d3ee, #a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Beyond the cockpit to the enterprise</span>
+      </p>
+      
+      <!-- Divider -->
+      <div style="width:80px;height:2px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);margin:0 auto 32px auto;animation:fadeIn-2 0.6s ease-out 0.4s both;"></div>
+
+      <!-- Supporting Points -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <p style="font-size:clamp(1.1rem, 2vw, 1.4rem);color:rgba(255,255,255,0.8);margin:0;line-height:1.5;font-weight:400;animation:slideUp-2 0.6s ease-out 0.5s both;">
+          Integration of AI across the full product lifecycle
+        </p>
+        <p style="font-size:clamp(1.1rem, 2vw, 1.4rem);color:rgba(255,255,255,0.8);margin:0;line-height:1.5;font-weight:400;animation:slideUp-2 0.6s ease-out 0.6s both;">
+          Support for decision-making from inception to end-of-life
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="3" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-3 { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes scaleIn-3 { from { opacity:0; transform:scale(0.9); } to { opacity:1; transform:scale(1); } }
+    @keyframes glowPulse-3 { 0%, 100% { opacity:0.3; } 50% { opacity:0.6; } }
+    @keyframes float-3 { 0%, 100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+    @keyframes lineTrace-3 { from { stroke-dashoffset: 100; opacity:0; } to { stroke-dashoffset: 0; opacity:0.3; } }
+    
+    .card-3 {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .icon-box-3 {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    
+    .card-title-3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      color: #fff;
+    }
+    
+    .card-desc-3 {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+
+  <!-- Background Decorative Elements -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;">
+    <!-- Gradient Orbs -->
+    <div style="position:absolute; top:-10%; right:-5%; width:600px; height:600px; background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%); border-radius:50%; animation: glowPulse-3 8s infinite alternate;"></div>
+    <div style="position:absolute; bottom:-10%; left:-5%; width:500px; height:500px; background:radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%); border-radius:50%; animation: glowPulse-3 6s infinite alternate-reverse;"></div>
+    
+    <!-- Central Connection Lines -->
+    <svg width="100%" height="100%" style="position:absolute; top:0; left:0; z-index:0;">
+      <defs>
+        <linearGradient id="gradLine-3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(34,211,238,0)" />
+          <stop offset="50%" stop-color="rgba(34,211,238,0.2)" />
+          <stop offset="100%" stop-color="rgba(34,211,238,0)" />
+        </linearGradient>
+      </defs>
+      <!-- Lines connecting center to quadrants -->
+      <line x1="50%" y1="50%" x2="25%" y2="30%" stroke="url(#gradLine-3)" stroke-width="1" stroke-dasharray="5 5" style="animation: lineTrace-3 1.5s ease-out 0.5s forwards;" />
+      <line x1="50%" y1="50%" x2="75%" y2="30%" stroke="url(#gradLine-3)" stroke-width="1" stroke-dasharray="5 5" style="animation: lineTrace-3 1.5s ease-out 0.5s forwards;" />
+      <line x1="50%" y1="50%" x2="25%" y2="70%" stroke="url(#gradLine-3)" stroke-width="1" stroke-dasharray="5 5" style="animation: lineTrace-3 1.5s ease-out 0.5s forwards;" />
+      <line x1="50%" y1="50%" x2="75%" y2="70%" stroke="url(#gradLine-3)" stroke-width="1" stroke-dasharray="5 5" style="animation: lineTrace-3 1.5s ease-out 0.5s forwards;" />
+      
+      <!-- Central Hub Circle -->
+      <circle cx="50%" cy="50%" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+      <circle cx="50%" cy="50%" r="4" fill="rgba(255,255,255,0.2)" />
+    </svg>
+  </div>
+
+  <!-- Content Container -->
+  <div style="position:relative; z-index:1; max-width:1000px; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center;">
+    
+    <!-- Header -->
+    <div style="text-align:center; margin-bottom:50px;">
+      <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem); letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:16px; animation: fadeIn-3 0.6s ease-out both;">The Technical Pillars of Transformation</h2>
+      <h1 style="font-size:clamp(2.5rem, 4.5vw, 3.5rem); font-weight:800; line-height:1.1; margin:0; background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeIn-3 0.6s ease-out 0.1s both;">Core Technologies Driving Innovation</h1>
+    </div>
+
+    <!-- Grid Layout -->
+    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:24px; width:100%;">
+      
+      <!-- Item 1: Computer Vision -->
+      <div class="card-3" style="animation: scaleIn-3 0.5s ease-out 0.2s both;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+          <div class="icon-box-3" style="background:rgba(34,211,238,0.1); color:#22d3ee; border:1px solid rgba(34,211,238,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="card-title-3" style="background:linear-gradient(90deg, #22d3ee, #fff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Computer Vision</h3>
+        </div>
+        <p class="card-desc-3">Enabling autonomous sensing, real-time quality control, and advanced in-car driver monitoring systems.</p>
+        <div style="position:absolute; top:0; right:0; width:60px; height:60px; background:radial-gradient(circle at top right, rgba(34,211,238,0.15), transparent 70%);"></div>
+      </div>
+
+      <!-- Item 2: Machine Learning -->
+      <div class="card-3" style="animation: scaleIn-3 0.5s ease-out 0.3s both;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+          <div class="icon-box-3" style="background:rgba(52,211,153,0.1); color:#34d399; border:1px solid rgba(52,211,153,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>
+          </div>
+          <h3 class="card-title-3" style="background:linear-gradient(90deg, #34d399, #fff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Machine Learning</h3>
+        </div>
+        <p class="card-desc-3">Powering predictive maintenance algorithms and intelligent demand forecasting for supply chains.</p>
+        <div style="position:absolute; top:0; right:0; width:60px; height:60px; background:radial-gradient(circle at top right, rgba(52,211,153,0.15), transparent 70%);"></div>
+      </div>
+
+      <!-- Item 3: Generative AI -->
+      <div class="card-3" style="animation: scaleIn-3 0.5s ease-out 0.4s both;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+          <div class="icon-box-3" style="background:rgba(167,139,250,0.1); color:#a78bfa; border:1px solid rgba(167,139,250,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h3 class="card-title-3" style="background:linear-gradient(90deg, #a78bfa, #fff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Generative AI</h3>
+        </div>
+        <p class="card-desc-3">Accelerating complex design cycles and running high-fidelity simulations for rapid prototyping.</p>
+        <div style="position:absolute; top:0; right:0; width:60px; height:60px; background:radial-gradient(circle at top right, rgba(167,139,250,0.15), transparent 70%);"></div>
+      </div>
+
+      <!-- Item 4: NLP -->
+      <div class="card-3" style="animation: scaleIn-3 0.5s ease-out 0.5s both;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+          <div class="icon-box-3" style="background:rgba(251,191,36,0.1); color:#fbbf24; border:1px solid rgba(251,191,36,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="card-title-3" style="background:linear-gradient(90deg, #fbbf24, #fff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">NLP</h3>
+        </div>
+        <p class="card-desc-3">Enhancing next-gen voice assistants and automating customer service interactions with high accuracy.</p>
+        <div style="position:absolute; top:0; right:0; width:60px; height:60px; background:radial-gradient(circle at top right, rgba(251,191,36,0.15), transparent 70%);"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="4" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;color:#ffffff;">
+  <style>
+    @keyframes fadeIn-4 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes scaleIn-4 { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse-4 { 0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.2); } 50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.5); } }
+    @keyframes flow-4 { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
+    @keyframes float-4 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    
+    .card-4 {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      width: 280px;
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+    
+    .icon-box-4 {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .h-gradient-4 {
+      background: linear-gradient(135deg, #22d3ee, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+
+  <!-- Background Elements -->
+  <div style="position:absolute;top:-20%;left:-10%;width:60%;height:60%;background:radial-gradient(circle, rgba(34,211,238,0.05), transparent 70%);border-radius:50%;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:60%;height:60%;background:radial-gradient(circle, rgba(167,139,250,0.05), transparent 70%);border-radius:50%;"></div>
+
+  <!-- Header -->
+  <div style="z-index:2;text-align:center;margin-top:60px;margin-bottom:40px;max-width:900px;padding:0 40px;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.5);margin-bottom:12px;animation:fadeIn-4 0.6s ease-out both;">AI in Design and Engineering</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;animation:fadeIn-4 0.6s ease-out 0.1s both;" class="h-gradient-4">Accelerating NPI</h1>
+  </div>
+
+  <!-- Diagram Container -->
+  <div style="position:relative;width:100%;max-width:1000px;flex:1;display:flex;justify-content:center;align-items:center;padding-bottom:60px;">
+    
+    <!-- Connecting Lines SVG -->
+    <svg style="position:absolute;width:100%;height:100%;top:0;left:0;z-index:0;pointer-events:none;" viewBox="0 0 1000 600">
+      <defs>
+        <linearGradient id="grad1-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a78bfa" stop-opacity="0.1"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="grad2-4" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#34d399" stop-opacity="0.1"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="grad3-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#fb7185" stop-opacity="0.1"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="grad4-4" x1="100%" y1="0%" x2="0%" y2="0%"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.1"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.6"/></linearGradient>
+      </defs>
+      <!-- Paths from cards to center (500, 300) -->
+      <!-- Top Left to Center -->
+      <path d="M 280 150 C 350 150, 450 300, 500 300" stroke="url(#grad1-4)" stroke-width="2" fill="none" stroke-dasharray="10 5" style="animation:flow-4 1s linear infinite reverse;"/>
+      <!-- Top Right to Center -->
+      <path d="M 720 150 C 650 150, 550 300, 500 300" stroke="url(#grad2-4)" stroke-width="2" fill="none" stroke-dasharray="10 5" style="animation:flow-4 1s linear infinite;"/>
+      <!-- Bottom Left to Center -->
+      <path d="M 280 450 C 350 450, 450 300, 500 300" stroke="url(#grad3-4)" stroke-width="2" fill="none" stroke-dasharray="10 5" style="animation:flow-4 1s linear infinite reverse;"/>
+      <!-- Bottom Right to Center -->
+      <path d="M 720 450 C 650 450, 550 300, 500 300" stroke="url(#grad4-4)" stroke-width="2" fill="none" stroke-dasharray="10 5" style="animation:flow-4 1s linear infinite;"/>
+    </svg>
+
+    <!-- Center Hub -->
+    <div style="position:absolute;z-index:10;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #22d3ee, #0e7490);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(34,211,238,0.4);animation:scaleIn-4 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both, pulse-4 3s infinite;">
+      <div style="font-size:2.5rem;margin-bottom:4px;">✦</div>
+      <div style="font-size:0.9rem;font-weight:800;color:#fff;text-align:center;line-height:1.1;">AI<br>AGENTS</div>
+    </div>
+
+    <!-- Top Left Card: GenAI Prototyping -->
+    <div class="card-4" style="top:50px;left:50px;animation:fadeIn-4 0.6s ease-out 0.4s both, float-4 6s ease-in-out infinite;">
+      <div class="icon-box-4" style="background:rgba(167,139,250,0.2);color:#a78bfa;">⚡</div>
+      <h3 style="margin:0 0 8px 0;font-size:1.1rem;color:#fff;">Rapid Prototyping</h3>
+      <p style="margin:0;font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.4;">Using GenAI for simulation and iteration, reducing cycles from weeks to hours.</p>
+    </div>
+
+    <!-- Top Right Card: Orchestration -->
+    <div class="card-4" style="top:50px;right:50px;animation:fadeIn-4 0.6s ease-out 0.5s both, float-4 6s ease-in-out 1.5s infinite;">
+      <div class="icon-box-4" style="background:rgba(52,211,153,0.2);color:#34d399;">⚙️</div>
+      <h3 style="margin:0 0 8px 0;font-size:1.1rem;color:#fff;">End-to-End Orchestration</h3>
+      <p style="margin:0;font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.4;">Unified oversight of the NPI process connecting design, supply, and engineering.</p>
+    </div>
+
+    <!-- Bottom Left Card: Dynamic Workflows -->
+    <div class="card-4" style="bottom:50px;left:50px;animation:fadeIn-4 0.6s ease-out 0.6s both, float-4 6s ease-in-out 3s infinite;">
+      <div class="icon-box-4" style="background:rgba(251,113,133,0.2);color:#fb7185;">🔄</div>
+      <h3 style="margin:0 0 8px 0;font-size:1.1rem;color:#fff;">Dynamic Workflows</h3>
+      <p style="margin:0;font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.4;">Replacing linear, manual handoffs with adaptive, parallel AI oversight.</p>
+    </div>
+
+    <!-- Bottom Right Card: Supplier Risk -->
+    <div class="card-4" style="bottom:50px;right:50px;animation:fadeIn-4 0.6s ease-out 0.7s both, float-4 6s ease-in-out 4.5s infinite;">
+      <div class="icon-box-4" style="background:rgba(251,191,36,0.2);color:#fbbf24;">🛡️</div>
+      <h3 style="margin:0 0 8px 0;font-size:1.1rem;color:#fff;">Supplier Intelligence</h3>
+      <p style="margin:0;font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.4;">Real-time monitoring of supplier readiness, capacity, and risk factors.</p>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="5" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-5 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-5 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInRight-5 { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse-5 { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.05); opacity: 0.8; } }
+    @keyframes float-5 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    
+    .bullet-item-5 {
+      opacity: 0;
+      animation: slideInRight-5 0.5s ease-out forwards;
+    }
+  </style>
+
+  <!-- Background Decorative Elements -->
+  <div style="position:absolute;top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle, rgba(167,139,250,0.06) 0%, transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+
+  <!-- Content Container -->
+  <div style="position:relative;z-index:1;width:100%;max-width:1000px;height:100%;display:flex;flex-direction:column;">
+    
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:40px;">
+      <h2 style="font-size:clamp(1rem, 2vw, 1.2rem);color:#22d3ee;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;opacity:0;animation:fadeIn-5 0.8s ease-out forwards;">The Rise of Agentic AI</h2>
+      <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);margin:0;font-weight:700;line-height:1.1;background:linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:slideUp-5 0.8s ease-out 0.2s forwards;">Supply Chain & Manufacturing Agility</h1>
+    </div>
+
+    <!-- Main Split Layout -->
+    <div style="display:grid;grid-template-columns:1fr auto 1.4fr;gap:30px;align-items:center;flex-grow:1;">
+      
+      <!-- Left Card: Traditional -->
+      <div style="height:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:30px;display:flex;flex-direction:column;align-items:center;text-align:center;backdrop-filter:blur(10px);opacity:0;animation:slideUp-5 0.8s ease-out 0.4s forwards;">
+        <div style="width:80px;height:80px;background:rgba(255,255,255,0.05);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid rgba(255,255,255,0.1);">
+          <!-- Spreadsheet Icon -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="3" y1="15" x2="21" y2="15"></line>
+            <line x1="9" y1="3" x2="9" y2="21"></line>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+          </svg>
+        </div>
+        <h3 style="font-size:1.4rem;color:rgba(255,255,255,0.6);margin:0 0 15px 0;font-weight:500;">Traditional Planning</h3>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.4);line-height:1.5;margin:0;">
+          Static Spreadsheets<br>
+          Reactive Decisions<br>
+          Siloed Data
+        </p>
+      </div>
+
+      <!-- Arrow Indicator -->
+      <div style="display:flex;align-items:center;justify-content:center;opacity:0;animation:fadeIn-5 0.8s ease-out 0.6s forwards;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 8px rgba(34,211,238,0.4));">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </div>
+
+      <!-- Right Card: Agentic -->
+      <div style="height:100%;background:linear-gradient(145deg, rgba(34,211,238,0.05), rgba(167,139,250,0.05));border:1px solid rgba(34,211,238,0.2);border-radius:20px;padding:35px;display:flex;flex-direction:column;position:relative;backdrop-filter:blur(10px);box-shadow:0 10px 40px -10px rgba(0,0,0,0.5);opacity:0;animation:slideUp-5 0.8s ease-out 0.6s forwards;">
+        
+        <!-- Header of Card -->
+        <div style="display:flex;align-items:center;margin-bottom:25px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:20px;">
+          <div style="width:60px;height:60px;background:rgba(34,211,238,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-right:20px;border:1px solid rgba(34,211,238,0.3);animation:float-5 4s ease-in-out infinite;">
+            <!-- Network Node Icon -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 9a9 9 0 1 0 9 9"></path>
+              <path d="M12 3v6"></path>
+              <path d="M12 15v6"></path>
+              <path d="M20 12h-3"></path>
+              <path d="M7 12H4"></path>
+              <circle cx="12" cy="3" r="1" fill="#22d3ee"></circle>
+              <circle cx="20" cy="12" r="1" fill="#22d3ee"></circle>
+              <circle cx="12" cy="21" r="1" fill="#22d3ee"></circle>
+              <circle cx="4" cy="12" r="1" fill="#22d3ee"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.6rem;margin:0;background:linear-gradient(135deg, #22d3ee, #a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">Agentic Planning</h3>
+            <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Autonomous & Contextual</span>
+          </div>
+        </div>
+
+        <!-- Key Points List -->
+        <ul style="list-style:none;padding:0;margin:0;flex-grow:1;display:flex;flex-direction:column;justify-content:space-around;">
+          <li class="bullet-item-5" style="display:flex;align-items:flex-start;margin-bottom:16px;animation-delay:0.8s;">
+            <span style="color:#22d3ee;margin-right:12px;font-size:1.2rem;line-height:1.4;">▸</span>
+            <span style="color:#ffffff;font-size:1.1rem;line-height:1.4;">Shift from passive analytics to <strong style="color:#22d3ee;font-weight:600;">active AI Agents</strong></span>
+          </li>
+          <li class="bullet-item-5" style="display:flex;align-items:flex-start;margin-bottom:16px;animation-delay:0.9s;">
+            <span style="color:#a78bfa;margin-right:12px;font-size:1.2rem;line-height:1.4;">▸</span>
+            <span style="color:rgba(255,255,255,0.9);font-size:1.1rem;line-height:1.4;">Reimagining service parts planning with <strong style="color:#a78bfa;font-weight:600;">contextual awareness</strong></span>
+          </li>
+          <li class="bullet-item-5" style="display:flex;align-items:flex-start;margin-bottom:16px;animation-delay:1.0s;">
+            <span style="color:#34d399;margin-right:12px;font-size:1.2rem;line-height:1.4;">▸</span>
+            <span style="color:rgba(255,255,255,0.9);font-size:1.1rem;line-height:1.4;">Supporting human planners with <strong style="color:#34d399;font-weight:600;">real-time synthesis</strong></span>
+          </li>
+          <li class="bullet-item-5" style="display:flex;align-items:flex-start;margin-bottom:0;animation-delay:1.1s;">
+            <span style="color:#fb7185;margin-right:12px;font-size:1.2rem;line-height:1.4;">▸</span>
+            <span style="color:rgba(255,255,255,0.9);font-size:1.1rem;line-height:1.4;">Predictive adjustments for inventory and <strong style="color:#fb7185;font-weight:600;">demand fluctuations</strong></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="6" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-6 { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse-6 { 0%, 100% { opacity:0.3; box-shadow: 0 0 0 rgba(52, 211, 153, 0); } 50% { opacity:1; box-shadow: 0 0 8px rgba(52, 211, 153, 0.4); } }
+    @keyframes scan-6 { 0% { top: 5%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { top: 95%; opacity: 0; } }
+    @keyframes flow-6 { 0% { stroke-dashoffset: 100; } 100% { stroke-dashoffset: 0; } }
+    
+    .cell-6 {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 2px;
+    }
+    .cell-6:nth-child(3n) { animation: pulse-6 3s infinite ease-in-out 0.5s; }
+    .cell-6:nth-child(3n+1) { animation: pulse-6 3s infinite ease-in-out 1.2s; }
+    .cell-6:nth-child(3n+2) { animation: pulse-6 3s infinite ease-in-out 2.0s; }
+
+    .bullet-point-6 {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeIn-6 0.6s ease-out forwards;
+    }
+    .bullet-icon-6 {
+      min-width: 24px;
+      height: 24px;
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(34, 211, 238, 0.1);
+      border-radius: 6px;
+      color: #22d3ee;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+  </style>
+
+  <!-- Background Effect -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.04), transparent 70%);pointer-events:none;"></div>
+
+  <!-- Header -->
+  <div style="width:100%;max-width:1000px;margin-bottom:40px;text-align:center;z-index:2;">
+    <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);color:#34d399;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:12px;animation:fadeIn-6 0.6s ease-out both;">Enhancing EV Reliability and Safety</h2>
+    <h1 style="font-size:clamp(2.2rem, 4vw, 3.2rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg, #ffffff 20%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;animation:fadeIn-6 0.6s ease-out 0.1s both;">Electrification: AI in Battery Management</h1>
+  </div>
+
+  <!-- Content Grid -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;width:100%;max-width:1000px;align-items:center;z-index:2;">
+    
+    <!-- Left Column: Key Points -->
+    <div>
+      <div class="bullet-point-6" style="animation-delay: 0.2s;">
+        <div class="bullet-icon-6">01</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Critical BMS Role</strong>
+          <span style="color:rgba(255,255,255,0.7);line-height:1.5;">Acts as the central nervous system, optimizing energy flow and ensuring pack longevity.</span>
+        </div>
+      </div>
+      
+      <div class="bullet-point-6" style="animation-delay: 0.3s;">
+        <div class="bullet-icon-6">02</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Real-time Monitoring</strong>
+          <span style="color:rgba(255,255,255,0.7);line-height:1.5;">AI algorithms precisely calculate State of Charge (SoC) and State of Health (SoH) continuously.</span>
+        </div>
+      </div>
+
+      <div class="bullet-point-6" style="animation-delay: 0.4s;">
+        <div class="bullet-icon-6">03</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Aging Management</strong>
+          <span style="color:rgba(255,255,255,0.7);line-height:1.5;">Mitigates internal resistance increases through adaptive charging profiles.</span>
+        </div>
+      </div>
+
+      <div class="bullet-point-6" style="animation-delay: 0.5s;">
+        <div class="bullet-icon-6">04</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Safety Protocols</strong>
+          <span style="color:rgba(255,255,255,0.7);line-height:1.5;">Predictive models detect anomalies early to prevent thermal runaway and catastrophic failure.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Visual Schematic -->
+    <div style="position:relative;height:320px;display:flex;align-items:center;justify-content:center;animation:fadeIn-6 0.8s ease-out 0.4s both;">
+      
+      <!-- EV Chassis Representation -->
+      <div style="position:relative;width:340px;height:180px;border:2px solid rgba(255,255,255,0.15);border-radius:24px;background:rgba(2,4,10,0.8);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+        
+        <!-- Wheels -->
+        <div style="position:absolute;top:-15px;left:40px;width:40px;height:15px;background:#1e293b;border-radius:4px;"></div>
+        <div style="position:absolute;top:-15px;right:40px;width:40px;height:15px;background:#1e293b;border-radius:4px;"></div>
+        <div style="position:absolute;bottom:-15px;left:40px;width:40px;height:15px;background:#1e293b;border-radius:4px;"></div>
+        <div style="position:absolute;bottom:-15px;right:40px;width:40px;height:15px;background:#1e293b;border-radius:4px;"></div>
+
+        <!-- Battery Pack Grid -->
+        <div style="display:grid;grid-template-columns:repeat(8, 1fr);grid-template-rows:repeat(4, 1fr);gap:6px;padding:20px;height:100%;width:100%;">
+          <!-- Generating 32 cells -->
+          <div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div>
+          <div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div>
+          <div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div>
+          <div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div><div class="cell-6"></div>
+        </div>
+
+        <!-- Scanning Line -->
+        <div style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg, transparent, #22d3ee, transparent);box-shadow:0 0 10px #22d3ee;animation:scan-6 3s ease-in-out infinite;"></div>
+      </div>
+
+      <!-- Callouts -->
+      
+      <!-- Top Callout: SoH Prediction -->
+      <div style="position:absolute;top:-40px;right:0;display:flex;flex-direction:column;align-items:flex-start;">
+        <div style="font-size:0.85rem;color:#22d3ee;font-weight:600;background:rgba(34,211,238,0.1);padding:4px 10px;border-radius:4px;border:1px solid rgba(34,211,238,0.3);">SoH Prediction</div>
+        <div style="width:2px;height:30px;background:linear-gradient(to bottom, #22d3ee, transparent);margin-left:20px;"></div>
+      </div>
+
+      <!-- Bottom Callout: Thermal Control -->
+      <div style="position:absolute;bottom:-50px;left:20px;display:flex;flex-direction:column;align-items:center;">
+        <div style="width:2px;height:35px;background:linear-gradient(to top, #fb7185, transparent);"></div>
+        <div style="font-size:0.85rem;color:#fb7185;font-weight:600;background:rgba(251,113,133,0.1);padding:4px 10px;border-radius:4px;border:1px solid rgba(251,113,133,0.3);">Thermal Control</div>
+      </div>
+
+      <!-- Side Callout: Safety Diagnostics -->
+      <div style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);display:flex;align-items:center;">
+        <div style="font-size:0.85rem;color:#34d399;font-weight:600;background:rgba(52,211,153,0.1);padding:4px 10px;border-radius:4px;border:1px solid rgba(52,211,153,0.3);white-space:nowrap;">Safety Diagnostics</div>
+        <div style="width:30px;height:2px;background:linear-gradient(to right, #34d399, transparent);"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="7" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-7 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-7 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInRight-7 { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse-7 { 0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.3); } 50% { box-shadow: 0 0 35px rgba(34, 211, 238, 0.2); border-color: rgba(34, 211, 238, 0.6); } }
+    @keyframes float-7 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(167, 139, 250, 0.08), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34, 211, 238, 0.08), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+
+  <div style="max-width:1000px;width:100%;position:relative;z-index:1;display:flex;flex-direction:column;height:100%;">
+    
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:50px;">
+      <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-7 0.8s ease-out both;">The Performance Delta</h2>
+      <h1 style="font-size:clamp(2.2rem, 4.5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-7 0.8s ease-out 0.1s both;">BMS Evolution:<br><span style="background:linear-gradient(135deg, #94a3b8 0%, #ffffff 40%, #22d3ee 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Standard vs. AI-Enhanced</span></h1>
+    </div>
+
+    <!-- Comparison Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex-grow:1;align-items:start;">
+      
+      <!-- Standard BMS Card -->
+      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;backdrop-filter:blur(10px);animation:slideUp-7 0.8s ease-out 0.2s both;height:100%;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px;">
+          <div style="width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin-right:16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3 style="font-size:1.5rem;font-weight:600;color:rgba(255,255,255,0.9);margin:0;">Standard Logic</h3>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;flex-grow:1;display:flex;flex-direction:column;gap:20px;">
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.6);font-size:1.1rem;line-height:1.4;">
+            <span style="color:#94a3b8;margin-right:12px;font-size:1.2em;">•</span>
+            Reactive monitoring based on fixed thresholds
+          </li>
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.6);font-size:1.1rem;line-height:1.4;">
+            <span style="color:#94a3b8;margin-right:12px;font-size:1.2em;">•</span>
+            Basic safety checks (Over-voltage/current)
+          </li>
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.6);font-size:1.1rem;line-height:1.4;">
+            <span style="color:#94a3b8;margin-right:12px;font-size:1.2em;">•</span>
+            Linear degradation estimates (SoH)
+          </li>
+        </ul>
+      </div>
+
+      <!-- AI-Enhanced BMS Card -->
+      <div style="background:linear-gradient(180deg, rgba(34, 211, 238, 0.05) 0%, rgba(16, 24, 39, 0.4) 100%);border:1px solid rgba(34, 211, 238, 0.3);border-radius:20px;padding:32px;backdrop-filter:blur(10px);animation:slideUp-7 0.8s ease-out 0.35s both, pulse-7 4s infinite ease-in-out;height:100%;display:flex;flex-direction:column;position:relative;">
+        <!-- Badge -->
+        <div style="position:absolute;top:-12px;right:24px;background:linear-gradient(90deg, #22d3ee, #34d399);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:700;color:#02040a;letter-spacing:0.05em;box-shadow:0 4px 12px rgba(34,211,238,0.3);">NEXT GEN</div>
+        
+        <div style="display:flex;align-items:center;margin-bottom:24px;border-bottom:1px solid rgba(34, 211, 238, 0.2);padding-bottom:16px;">
+          <div style="width:40px;height:40px;border-radius:8px;background:rgba(34, 211, 238, 0.2);display:flex;align-items:center;justify-content:center;margin-right:16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 12v.01"></path><path d="M12 16v.01"></path></svg>
+          </div>
+          <h3 style="font-size:1.5rem;font-weight:600;background:linear-gradient(90deg, #22d3ee, #34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;">AI-Driven Algorithms</h3>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;flex-grow:1;display:flex;flex-direction:column;gap:20px;">
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.95);font-size:1.1rem;line-height:1.4;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right:12px;min-width:20px;margin-top:2px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Predictive fault analysis & anomaly detection
+          </li>
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.95);font-size:1.1rem;line-height:1.4;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right:12px;min-width:20px;margin-top:2px;"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>
+            Dynamic thermal optimization
+          </li>
+          <li style="display:flex;align-items:flex-start;color:rgba(255,255,255,0.95);font-size:1.1rem;line-height:1.4;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" style="margin-right:12px;min-width:20px;margin-top:2px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            Precise non-linear health capability
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Outcome Footer -->
+    <div style="margin-top:40px;padding:20px 30px;background:rgba(167, 139, 250, 0.1);border-left:4px solid #a78bfa;border-radius:0 12px 12px 0;animation:slideInRight-7 0.8s ease-out 0.5s both;display:flex;align-items:center;">
+      <div style="font-size:1.1rem;color:rgba(255,255,255,0.9);">
+        <span style="font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:0.05em;margin-right:10px;">Outcome:</span>
+        Higher reliability and optimized charging cycles extending asset lifespan.
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="slide" data-index="8" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-8 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInLeft-8 { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes scaleUp-8 { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    @keyframes pulse-8 { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.05); } }
+    @keyframes float-8 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    
+    .list-item-8 {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: slideInLeft-8 0.6s ease-out forwards;
+    }
+    
+    .pyramid-layer-8 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+      opacity: 0;
+      animation: scaleUp-8 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+
+    /* Trapezoid shape via clip-path for a modern pyramid look */
+    .trapezoid-8 {
+      clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    }
+    .triangle-top-8 {
+      clip-path: polygon(50% 0, 100% 100%, 0% 100%);
+    }
+    
+    /* Modified to stacked rounded rectangles for better text readability while maintaining pyramid silhouette */
+    .stack-layer-8 {
+      border-radius: 12px;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease;
+    }
+  </style>
+
+  <!-- Background Decorative Elements -->
+  <div style="position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.06), transparent 70%);border-radius:50%;filter:blur(60px);animation:pulse-8 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle, rgba(167,139,250,0.05), transparent 70%);border-radius:50%;filter:blur(60px);"></div>
+
+  <!-- Header Section -->
+  <div style="width:100%;max-width:1000px;margin-bottom:40px;position:relative;z-index:2;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-8 0.6s ease-out both;">Emerging Trends in Mobility</h2>
+    <h1 style="font-size:clamp(2.2rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;background:linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0;animation:fadeIn-8 0.6s ease-out 0.1s both;">Autonomous Driving &<br><span style="background:linear-gradient(135deg, #22d3ee, #34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Agent-Driven Apps</span></h1>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;width:100%;max-width:1000px;position:relative;z-index:2;align-items:center;">
+    
+    <!-- Left Column: Key Points -->
+    <div>
+      <div class="list-item-8" style="animation-delay: 0.3s;">
+        <div style="min-width:40px;height:40px;border-radius:50%;background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.3);display:flex;align-items:center;justify-content:center;margin-right:20px;color:#22d3ee;font-size:1.2rem;">1</div>
+        <div>
+          <h3 style="margin:0 0 6px 0;font-size:1.2rem;color:#fff;">Super-App Evolution</h3>
+          <p style="margin:0;font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);">Shift from isolated tools to foundational 'Super-Apps' that control the entire user journey.</p>
+        </div>
+      </div>
+
+      <div class="list-item-8" style="animation-delay: 0.4s;">
+        <div style="min-width:40px;height:40px;border-radius:50%;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;margin-right:20px;color:#a78bfa;font-size:1.2rem;">2</div>
+        <div>
+          <h3 style="margin:0 0 6px 0;font-size:1.2rem;color:#fff;">Agent-Driven Competition</h3>
+          <p style="margin:0;font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);">Autonomous agents redefining competitive landscapes by proactively managing tasks.</p>
+        </div>
+      </div>
+
+      <div class="list-item-8" style="animation-delay: 0.5s;">
+        <div style="min-width:40px;height:40px;border-radius:50%;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);display:flex;align-items:center;justify-content:center;margin-right:20px;color:#34d399;font-size:1.2rem;">3</div>
+        <div>
+          <h3 style="margin:0 0 6px 0;font-size:1.2rem;color:#fff;">Vehicle Autonomy</h3>
+          <p style="margin:0;font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);">Deep integration of advanced autonomy directly into vehicle operations and OS.</p>
+        </div>
+      </div>
+
+      <div class="list-item-8" style="animation-delay: 0.6s;">
+        <div style="min-width:40px;height:40px;border-radius:50%;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);display:flex;align-items:center;justify-content:center;margin-right:20px;color:#fbbf24;font-size:1.2rem;">4</div>
+        <div>
+          <h3 style="margin:0 0 6px 0;font-size:1.2rem;color:#fff;">CES 2026 Focus</h3>
+          <p style="margin:0;font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.7);">Emphasis on practical, scalable integration over purely theoretical capabilities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Pyramid Diagram -->
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding-top:20px;">
+      
+      <!-- Top Layer -->
+      <div class="pyramid-layer-8 stack-layer-8" style="width:240px;height:90px;background:linear-gradient(135deg, rgba(34,211,238,0.2), rgba(34,211,238,0.05));border-color:rgba(34,211,238,0.4);animation-delay:0.9s;z-index:3;animation-name:scaleUp-8, float-8;animation-duration:0.6s, 4s;animation-iteration-count:1, infinite;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span style="font-size:1.1rem;color:#22d3ee;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Top Layer</span>
+          <span style="font-size:1.3rem;font-weight:800;">Agent-Driven<br>Super-Apps</span>
+        </div>
+      </div>
+
+      <!-- Arrow Down -->
+      <div style="width:2px;height:20px;background:linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);margin:5px 0;opacity:0;animation:fadeIn-8 0.5s ease-out 1s forwards;"></div>
+
+      <!-- Middle Layer -->
+      <div class="pyramid-layer-8 stack-layer-8" style="width:320px;height:80px;background:linear-gradient(135deg, rgba(167,139,250,0.15), rgba(167,139,250,0.05));border-color:rgba(167,139,250,0.3);animation-delay:0.8s;z-index:2;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span style="font-size:0.9rem;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Middle Layer</span>
+          <span style="font-size:1.4rem;font-weight:600;">AI Models</span>
+        </div>
+      </div>
+
+      <!-- Arrow Down -->
+      <div style="width:2px;height:20px;background:linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);margin:5px 0;opacity:0;animation:fadeIn-8 0.5s ease-out 0.9s forwards;"></div>
+
+      <!-- Bottom Layer -->
+      <div class="pyramid-layer-8 stack-layer-8" style="width:400px;height:80px;background:linear-gradient(135deg, rgba(52,211,153,0.1), rgba(52,211,153,0.02));border-color:rgba(52,211,153,0.3);animation-delay:0.7s;z-index:1;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span style="font-size:0.9rem;color:#34d399;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Base Layer</span>
+          <span style="font-size:1.4rem;font-weight:600;">Sensors & Infrastructure</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="9" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-9 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes drawLine-9 { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+    @keyframes popIn-9 { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse-9 { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); } 50% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } }
+    @keyframes float-9 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:40px;position:relative;z-index:1;max-width:800px;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-9 0.6s ease-out both;">Strategic Calibration</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-9 0.6s ease-out 0.1s both;">Market Reality: The AI 'Bubble' & ROI</h1>
+  </div>
+
+  <!-- Main Diagram Content -->
+  <div style="position:relative;width:100%;max-width:1000px;flex:1;display:flex;flex-direction:column;justify-content:center;z-index:1;">
+    
+    <!-- Graph Visualization -->
+    <div style="position:relative;width:100%;height:280px;margin-bottom:30px;">
+      <!-- Grid Lines -->
+      <div style="position:absolute;inset:0;border-left:1px dashed rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);"></div>
+      
+      <!-- SVG Curve -->
+      <svg viewBox="0 0 1000 300" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible;">
+        <defs>
+          <linearGradient id="lineGradient-9" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#fb7185" /> <!-- Rose: Peak -->
+            <stop offset="40%" stop-color="#a78bfa" /> <!-- Violet: Trough -->
+            <stop offset="70%" stop-color="#22d3ee" /> <!-- Cyan: Slope -->
+            <stop offset="100%" stop-color="#34d399" /> <!-- Emerald: Plateau -->
+          </linearGradient>
+        </defs>
+        <!-- Hype Cycle Curve -->
+        <!-- Start low, steep rise to peak, drop to trough, rise to plateau -->
+        <path d="M 0,280 C 100,280 120,50 200,50 C 280,50 320,250 450,250 C 580,250 650,150 750,150 L 1000,150" 
+              fill="none" stroke="url(#lineGradient-9)" stroke-width="4" stroke-linecap="round"
+              stroke-dasharray="1200" stroke-dashoffset="1200"
+              style="animation:drawLine-9 1.5s ease-out 0.3s forwards; filter: drop-shadow(0 0 8px rgba(167,139,250,0.3));" />
+        
+        <!-- Markers -->
+        <!-- Peak -->
+        <circle cx="200" cy="50" r="6" fill="#02040a" stroke="#fb7185" stroke-width="3" style="opacity:0; animation:popIn-9 0.4s ease-out 0.8s forwards;" />
+        <!-- Trough -->
+        <circle cx="450" cy="250" r="6" fill="#02040a" stroke="#a78bfa" stroke-width="3" style="opacity:0; animation:popIn-9 0.4s ease-out 1.0s forwards;" />
+        <!-- Slope -->
+        <circle cx="700" cy="165" r="6" fill="#02040a" stroke="#22d3ee" stroke-width="3" style="opacity:0; animation:popIn-9 0.4s ease-out 1.2s forwards;" />
+        <!-- Plateau -->
+        <circle cx="950" cy="150" r="6" fill="#02040a" stroke="#34d399" stroke-width="3" style="opacity:0; animation:popIn-9 0.4s ease-out 1.4s forwards;" />
+      </svg>
+      
+      <!-- Axis Labels -->
+      <div style="position:absolute;left:-30px;top:50%;transform:rotate(-90deg) translateX(50%);color:rgba(255,255,255,0.3);font-size:0.8rem;letter-spacing:1px;">EXPECTATIONS</div>
+      <div style="position:absolute;bottom:-25px;right:0;color:rgba(255,255,255,0.3);font-size:0.8rem;letter-spacing:1px;">TIME</div>
+    </div>
+
+    <!-- Key Points Cards -->
+    <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:20px;align-items:start;">
+      
+      <!-- Point 1 -->
+      <div style="animation:fadeIn-9 0.6s ease-out 0.8s both;">
+        <div style="padding:16px;background:rgba(251, 113, 133, 0.05);border:1px solid rgba(251, 113, 133, 0.2);border-radius:12px;backdrop-filter:blur(10px);">
+          <div style="color:#fb7185;font-weight:700;font-size:0.9rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;">The Hype Peak</div>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.4;margin:0;">
+            Market experts predict imminent 'deflation' of the initial AI bubble.
+          </p>
+        </div>
+        <div style="height:20px;border-left:1px dashed rgba(251, 113, 133, 0.3);margin-left:20px;margin-top:-5px;"></div>
+      </div>
+
+      <!-- Point 2 -->
+      <div style="animation:fadeIn-9 0.6s ease-out 1.0s both;margin-top:40px;">
+        <div style="height:20px;border-left:1px dashed rgba(167, 139, 250, 0.3);margin-left:20px;margin-bottom:-5px;"></div>
+        <div style="padding:16px;background:rgba(167, 139, 250, 0.05);border:1px solid rgba(167, 139, 250, 0.2);border-radius:12px;backdrop-filter:blur(10px);">
+          <div style="color:#a78bfa;font-weight:700;font-size:0.9rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;">Reality Check</div>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.4;margin:0;">
+            Many early investments are not yet yielding tangible payoffs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Point 3 -->
+      <div style="animation:fadeIn-9 0.6s ease-out 1.2s both;">
+        <div style="padding:16px;background:rgba(34, 211, 238, 0.05);border:1px solid rgba(34, 211, 238, 0.2);border-radius:12px;backdrop-filter:blur(10px);">
+          <div style="color:#22d3ee;font-weight:700;font-size:0.9rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;">Strategic Pivot</div>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.4;margin:0;">
+            Re-evaluating portfolios to focus on high-impact, proven use cases.
+          </p>
+        </div>
+        <div style="height:20px;border-left:1px dashed rgba(34, 211, 238, 0.3);margin-left:20px;margin-top:-5px;"></div>
+      </div>
+
+      <!-- Point 4 -->
+      <div style="animation:fadeIn-9 0.6s ease-out 1.4s both;margin-top:20px;">
+        <div style="height:20px;border-left:1px dashed rgba(52, 211, 153, 0.3);margin-left:20px;margin-bottom:-5px;"></div>
+        <div style="padding:16px;background:rgba(52, 211, 153, 0.05);border:1px solid rgba(52, 211, 153, 0.2);border-radius:12px;backdrop-filter:blur(10px);">
+          <div style="color:#34d399;font-weight:700;font-size:0.9rem;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;">Real ROI</div>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.4;margin:0;">
+            Shifting mindset from <em>Fear of Missing Out</em> to <strong>Focus on Outcome</strong>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="10" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-10 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-10 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes scaleIn-10 { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse-10 { 0%, 100% { box-shadow: 0 0 20px rgba(52, 211, 153, 0.1); } 50% { box-shadow: 0 0 40px rgba(52, 211, 153, 0.2); } }
+    @keyframes checkDraw-10 { from { stroke-dashoffset: 20; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+    
+    .list-item-10 {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      opacity: 0;
+      animation: slideUp-10 0.6s ease-out forwards;
+    }
+    .list-icon-10 {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      margin-right: 16px;
+      margin-top: 2px;
+      background: rgba(52, 211, 153, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34d399;
+    }
+    .checklist-row-10 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      opacity: 0;
+      animation: slideUp-10 0.5s ease-out forwards;
+    }
+    .checklist-row-10:last-child { border-bottom: none; }
+  </style>
+
+  <!-- Background Elements -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,153,0.08),transparent 70%);filter:blur(40px);"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,0.05),transparent 70%);filter:blur(40px);"></div>
+
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:60px;max-width:1100px;width:100%;z-index:1;align-items:center;">
+    
+    <!-- Left Content -->
+    <div>
+      <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-10 0.6s ease-out both;">Compliance & Governance</h2>
+      <h1 style="font-size:clamp(2.5rem, 4vw, 3.5rem);font-weight:800;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg, #34d399, #22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-10 0.6s ease-out 0.1s both;">Regulatory Landscape</h1>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.7);margin-bottom:40px;font-weight:300;animation:fadeIn-10 0.6s ease-out 0.2s both;">From Aspirations to Demonstrable Controls</p>
+      
+      <div style="display:flex;flex-direction:column;">
+        <div class="list-item-10" style="animation-delay: 0.3s;">
+          <div class="list-icon-10">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>Regulators are moving beyond high-level ethical mission statements to enforcement.</div>
+        </div>
+        <div class="list-item-10" style="animation-delay: 0.4s;">
+          <div class="list-icon-10">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>Mandatory requirement for <strong>'Demonstrable Controls'</strong> and rigorous documentation.</div>
+        </div>
+        <div class="list-item-10" style="animation-delay: 0.5s;">
+          <div class="list-icon-10">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>Increased scrutiny on training data quality, provenance, and bias mitigation.</div>
+        </div>
+        <div class="list-item-10" style="animation-delay: 0.6s;">
+          <div class="list-icon-10">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>Governance frameworks must be concrete and operational, not abstract.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Visual: Shield & Checklist -->
+    <div style="position:relative;display:flex;justify-content:center;align-items:center;animation:scaleIn-10 0.8s ease-out 0.2s both;">
+      
+      <!-- Shield Background Graphic -->
+      <svg width="380" height="420" viewBox="0 0 24 24" fill="none" stroke="rgba(52, 211, 153, 0.15)" stroke-width="0.5" style="position:absolute;z-index:0;transform:scale(1.2);">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(52, 211, 153, 0.03)"/>
+      </svg>
+
+      <!-- Glass Card Checklist -->
+      <div style="width:320px;background:rgba(16, 24, 39, 0.6);backdrop-filter:blur(16px);border:1px solid rgba(52, 211, 153, 0.3);border-radius:16px;padding:30px;position:relative;z-index:2;box-shadow:0 20px 50px rgba(0,0,0,0.5);animation:pulse-10 4s ease-in-out infinite;">
+        
+        <!-- Header with Shield Icon -->
+        <div style="display:flex;align-items:center;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px;">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg, #34d399, #059669);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:16px;box-shadow:0 4px 12px rgba(52, 211, 153, 0.3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Status: Active</div>
+            <div style="font-size:1.1rem;font-weight:700;color:white;">Compliance Check</div>
+          </div>
+        </div>
+
+        <!-- Checklist Items -->
+        <div class="checklist-row-10" style="animation-delay: 0.7s;">
+          <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Data Transparency</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw-10 0.5s ease-out 0.9s forwards;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        
+        <div class="checklist-row-10" style="animation-delay: 0.85s;">
+          <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Bias Control</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw-10 0.5s ease-out 1.05s forwards;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+
+        <div class="checklist-row-10" style="animation-delay: 1.0s;">
+          <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Documentation</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw-10 0.5s ease-out 1.2s forwards;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+
+        <div class="checklist-row-10" style="animation-delay: 1.15s;">
+          <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Audit Trails</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:20;stroke-dashoffset:20;animation:checkDraw-10 0.5s ease-out 1.35s forwards;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+
+      </div>
+      
+      <!-- Decorative floating elements -->
+      <div style="position:absolute;top:-20px;right:-20px;width:60px;height:60px;background:rgba(34, 211, 238, 0.1);border-radius:12px;transform:rotate(15deg);z-index:0;backdrop-filter:blur(4px);"></div>
+      <div style="position:absolute;bottom:-10px;left:-30px;width:40px;height:40px;background:rgba(167, 139, 250, 0.1);border-radius:50%;z-index:3;backdrop-filter:blur(4px);"></div>
+
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="11" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-11 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-11 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-11 { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.05); } }
+    @keyframes float-11 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes circuit-11 { 0% { stroke-dashoffset: 100; } 100% { stroke-dashoffset: 0; } }
+    
+    .list-item-11 {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease;
+    }
+    
+    .icon-box-11 {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      flex-shrink: 0;
+      color: #22d3ee;
+    }
+  </style>
+
+  <!-- Background Ambience -->
+  <div style="position:absolute;top:-20%;right:-10%;width:800px;height:800px;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;animation:pulse-11 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(34,211,238,0.06), transparent 70%);border-radius:50%;animation:pulse-11 10s ease-in-out infinite 1s;"></div>
+
+  <!-- Main Content Container -->
+  <div style="display:grid;grid-template-columns:1.3fr 0.9fr;gap:60px;max-width:1000px;width:100%;position:relative;z-index:1;align-items:center;">
+    
+    <!-- Left Column: Text Content -->
+    <div>
+      <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-11 0.6s ease-out both;">
+        Managing the Human-AI Interface
+      </h2>
+      <h1 style="font-size:clamp(2.5rem, 4vw, 3.5rem);font-weight:800;line-height:1.1;margin-bottom:40px;background:linear-gradient(135deg, #22d3ee, #a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-11 0.6s ease-out 0.1s both;">
+        Ethical Leadership & Governance
+      </h1>
+
+      <div style="display:flex;flex-direction:column;">
+        <!-- Point 1 -->
+        <div class="list-item-11" style="animation:slideUp-11 0.6s ease-out 0.2s both;">
+          <div class="icon-box-11" style="color:#22d3ee;background:rgba(34,211,238,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem;font-weight:600;color:#fff;margin:0 0 4px 0;">Algorithmic Transparency</h3>
+            <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);margin:0;line-height:1.4;">Clarifying decision-making logic in complex models.</p>
+          </div>
+        </div>
+
+        <!-- Point 2 -->
+        <div class="list-item-11" style="animation:slideUp-11 0.6s ease-out 0.3s both;">
+          <div class="icon-box-11" style="color:#fbbf24;background:rgba(251,191,36,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem;font-weight:600;color:#fff;margin:0 0 4px 0;">Human-in-the-Loop</h3>
+            <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);margin:0;line-height:1.4;">Integrating human judgment into deployment.</p>
+          </div>
+        </div>
+
+        <!-- Point 3 -->
+        <div class="list-item-11" style="animation:slideUp-11 0.6s ease-out 0.4s both;">
+          <div class="icon-box-11" style="color:#fb7185;background:rgba(251,113,133,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9.5 9.5l5 5"/><path d="M14.5 9.5l-5 5"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem;font-weight:600;color:#fff;margin:0 0 4px 0;">Black Box Interpretability</h3>
+            <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);margin:0;line-height:1.4;">Addressing opacity in safety-critical systems.</p>
+          </div>
+        </div>
+
+        <!-- Point 4 -->
+        <div class="list-item-11" style="animation:slideUp-11 0.6s ease-out 0.5s both;">
+          <div class="icon-box-11" style="color:#a78bfa;background:rgba(167,139,250,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem;font-weight:600;color:#fff;margin:0 0 4px 0;">Diverse Oversight</h3>
+            <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);margin:0;line-height:1.4;">Ensuring multi-perspective governance to prevent bias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Visual Illustration -->
+    <div style="position:relative;height:100%;display:flex;align-items:center;justify-content:center;animation:fadeIn-11 1s ease-out 0.4s both;">
+      <!-- Decorative Grid Behind -->
+      <div style="position:absolute;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:30px 30px;mask-image:radial-gradient(circle, black 40%, transparent 80%);z-index:-1;"></div>
+      
+      <!-- Handshake SVG Illustration -->
+      <div style="position:relative;width:360px;height:360px;animation:float-11 6s ease-in-out infinite;">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;filter:drop-shadow(0 0 20px rgba(34,211,238,0.2));">
+          <!-- Definitions for gradients -->
+          <defs>
+            <linearGradient id="humanGrad-11" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#fb7185;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="robotGrad-11" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+            </linearGradient>
+            <filter id="glow-11" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Human Hand (Left) -->
+          <g transform="translate(0, 20)">
+            <!-- Arm -->
+            <path d="M0 150 L80 150" stroke="url(#humanGrad-11)" stroke-width="24" stroke-linecap="round" opacity="0.3"/>
+            <!-- Hand Shape (Stylized) -->
+            <path d="M80 150 Q120 150 140 130 L170 160 Q150 190 110 180 Z" fill="url(#humanGrad-11)" opacity="0.8"/>
+            <circle cx="140" cy="150" r="4" fill="#fff" opacity="0.5"/>
+          </g>
+
+          <!-- Robot Hand (Right) -->
+          <g transform="translate(0, 20)">
+            <!-- Arm -->
+            <path d="M400 150 L320 150" stroke="url(#robotGrad-11)" stroke-width="24" stroke-linecap="square" opacity="0.3"/>
+            <!-- Circuit Lines on Arm -->
+            <line x1="330" y1="150" x2="390" y2="150" stroke="#fff" stroke-width="1" opacity="0.5"/>
+            <circle cx="350" cy="150" r="2" fill="#fff"/>
+            
+            <!-- Hand Shape (Stylized Mechanical) -->
+            <path d="M320 150 L280 150 L260 130 L230 160 L260 190 L300 180 Z" fill="url(#robotGrad-11)" opacity="0.8"/>
+            <!-- Tech Details -->
+            <circle cx="270" cy="150" r="6" stroke="#fff" stroke-width="1.5" fill="none"/>
+            <circle cx="270" cy="150" r="2" fill="#fff"/>
+          </g>
+
+          <!-- Connection Spark -->
+          <g transform="translate(200, 170)">
+             <circle r="15" fill="white" filter="url(#glow-11)" opacity="0.8">
+               <animate attributeName="opacity" values="0.5;1;0.5" duration="2s" repeatCount="indefinite"/>
+               <animate attributeName="r" values="10;15;10" duration="2s" repeatCount="indefinite"/>
+             </circle>
+             <circle r="25" stroke="white" stroke-width="1" opacity="0.3">
+               <animate attributeName="r" values="20;30;20" duration="2s" repeatCount="indefinite"/>
+               <animate attributeName="opacity" values="0.3;0;0.3" duration="2s" repeatCount="indefinite"/>
+             </circle>
+          </g>
+          
+          <!-- Connecting Data Lines -->
+          <path d="M170 160 Q200 170 230 160" stroke="white" stroke-width="2" stroke-dasharray="4 4" opacity="0.6">
+             <animate attributeName="stroke-dashoffset" from="10" to="0" duration="1s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+        
+        <!-- Labels -->
+        <div style="position:absolute;bottom:20px;left:0;font-size:0.8rem;color:#fb7185;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Human Judgment</div>
+        <div style="position:absolute;bottom:20px;right:0;font-size:0.8rem;color:#22d3ee;text-transform:uppercase;letter-spacing:1px;font-weight:700;">AI Efficiency</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="12" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;box-sizing:border-box;">
+  <style>
+    @keyframes fadeIn-12 { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp-12 { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-12 { 0%, 100% { box-shadow: 0 0 20px rgba(167, 139, 250, 0.2); transform: translate(-50%, -50%) scale(1); } 50% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.4); transform: translate(-50%, -50%) scale(1.05); } }
+    @keyframes float-12 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    
+    .venn-circle-12 {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+    
+    .list-item-12 {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+    }
+    
+    .list-icon-12 {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      margin-right: 16px;
+      margin-top: 4px;
+      border-radius: 50%;
+      background: rgba(34, 211, 238, 0.2);
+      border: 1px solid rgba(34, 211, 238, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #22d3ee;
+      font-size: 14px;
+    }
+  </style>
+
+  <!-- Decorative Background -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle, rgba(34,211,238,0.05), transparent 70%);border-radius:50%;filter:blur(60px);z-index:0;"></div>
+
+  <!-- Header -->
+  <div style="width:100%;max-width:1000px;margin-bottom:40px;z-index:1;text-align:center;">
+    <h2 style="font-size:clamp(0.9rem, 2vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.6);margin-bottom:12px;animation:fadeIn-12 0.8s ease-out both;">The Human + AI Paradigm</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;margin:0;background:linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:slideUp-12 0.8s ease-out 0.1s both;">The Leadership Challenge</h1>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:60px;width:100%;max-width:1100px;align-items:center;z-index:1;">
+    
+    <!-- Left Column: Key Points -->
+    <div style="animation:slideUp-12 0.8s ease-out 0.2s both;">
+      <div class="list-item-12">
+        <div class="list-icon-12">1</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Shift to 'Human + AI' Models</strong>
+          <span style="color:rgba(255,255,255,0.7);">Moving beyond automation to augmentation, where AI handles data and humans handle context.</span>
+        </div>
+      </div>
+      
+      <div class="list-item-12">
+        <div class="list-icon-12" style="background:rgba(251, 113, 133, 0.2);border-color:rgba(251, 113, 133, 0.5);color:#fb7185;">2</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Premium on EQ & Judgment</strong>
+          <span style="color:rgba(255,255,255,0.7);">As algorithms handle logic, human empathy, ethics, and nuanced decision-making become the scarce resource.</span>
+        </div>
+      </div>
+      
+      <div class="list-item-12">
+        <div class="list-icon-12" style="background:rgba(52, 211, 153, 0.2);border-color:rgba(52, 211, 153, 0.5);color:#34d399;">3</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">AI as a 'Force Multiplier'</strong>
+          <span style="color:rgba(255,255,255,0.7);">Liberating leaders from administrative burdens to focus on high-value strategy and innovation.</span>
+        </div>
+      </div>
+      
+      <div class="list-item-12">
+        <div class="list-icon-12" style="background:rgba(251, 191, 36, 0.2);border-color:rgba(251, 191, 36, 0.5);color:#fbbf24;">4</div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Orchestrating Hybrid Teams</strong>
+          <span style="color:rgba(255,255,255,0.7);">Managers must learn to lead seamless workflows between human talent and AI agents.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Venn Diagram Visual -->
+    <div style="position:relative;height:400px;width:100%;display:flex;justify-content:center;align-items:center;animation:fadeIn-12 1s ease-out 0.4s both;">
+      
+      <!-- Circle 1: Machine -->
+      <div class="venn-circle-12" style="left:50%;transform:translateX(-85%);background:radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.15), rgba(34, 211, 238, 0.05));border:1px solid rgba(34, 211, 238, 0.3);color:#22d3ee;animation:float-12 6s ease-in-out infinite;">
+        <div style="transform:translateX(-20px);">
+          <div style="font-size:1.2rem;font-weight:700;margin-bottom:4px;">Machine</div>
+          <div style="font-size:0.85rem;opacity:0.8;">Speed, Scale &<br>Computation</div>
+        </div>
+      </div>
+
+      <!-- Circle 2: Human -->
+      <div class="venn-circle-12" style="left:50%;transform:translateX(-15%);background:radial-gradient(circle at 70% 30%, rgba(251, 113, 133, 0.15), rgba(251, 113, 133, 0.05));border:1px solid rgba(251, 113, 133, 0.3);color:#fb7185;animation:float-12 6s ease-in-out infinite reverse;">
+        <div style="transform:translateX(20px);">
+          <div style="font-size:1.2rem;font-weight:700;margin-bottom:4px;">Human</div>
+          <div style="font-size:0.85rem;opacity:0.8;">Empathy, Context<br>& Creativity</div>
+        </div>
+      </div>
+
+      <!-- Intersection -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(167, 139, 250, 0.1));border:1px solid rgba(167, 139, 250, 0.6);display:flex;align-items:center;justify-content:center;text-align:center;backdrop-filter:blur(8px);z-index:10;animation:pulse-12 3s infinite ease-in-out;">
+        <div>
+          <div style="font-size:1rem;font-weight:800;line-height:1.2;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,0.5);">FUTURE<br>LEADERSHIP</div>
+        </div>
+      </div>
+
+      <!-- Connecting Lines/Decorations -->
+      <svg style="position:absolute;width:100%;height:100%;pointer-events:none;z-index:-1;opacity:0.4;" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="grad-12" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:0" />
+            <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#fb7185;stop-opacity:0" />
+          </linearGradient>
+        </defs>
+        <line x1="50" y1="200" x2="350" y2="200" stroke="url(#grad-12)" stroke-width="1" stroke-dasharray="4 4" />
+      </svg>
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="13" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-13 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes growBar-13 { from { height: 0; opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse-13 { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.05); } }
+    
+    .chart-bar-13 {
+      width: 60px;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .chart-bar-13:hover {
+      filter: brightness(1.2);
+      transform: translateY(-5px);
+    }
+    .bar-label-13 {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      white-space: nowrap;
+      text-align: center;
+      width: 120px;
+      line-height: 1.2;
+    }
+    .bar-value-13 {
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+  </style>
+
+  <!-- Decorative Background Elements -->
+  <div style="position:absolute;top:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.08),transparent 70%);animation:pulse-13 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,0.06),transparent 70%);animation:pulse-13 6s ease-in-out infinite 1s;"></div>
+
+  <div style="max-width:1000px;width:100%;position:relative;z-index:1;display:flex;flex-direction:column;height:100%;justify-content:center;">
+    
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:40px;">
+      <h2 style="font-size:clamp(0.9rem,2vw,1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.5);margin-bottom:12px;animation:fadeIn-13 0.6s ease-out both;">Executive Priorities</h2>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg,#a78bfa,#fb7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-13 0.6s ease-out 0.1s both;">Talent & Organizational Readiness</h1>
+      <p style="font-size:1.2rem;color:rgba(255,255,255,0.8);margin-top:12px;font-weight:300;animation:fadeIn-13 0.6s ease-out 0.2s both;">Bridging the critical skills gap in an era of accelerated change</p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;">
+      
+      <!-- Left Column: Key Points -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        
+        <!-- Highlight Stat Card -->
+        <div style="padding:20px 24px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px);display:flex;align-items:center;gap:20px;animation:fadeIn-13 0.6s ease-out 0.3s both;">
+          <div style="font-size:2.5rem;font-weight:800;color:#fb7185;line-height:1;">90%</div>
+          <div style="font-size:0.95rem;color:rgba(255,255,255,0.9);line-height:1.4;">
+            of C-suite leaders report an <span style="color:#fff;font-weight:600;">accelerated pace of change</span> in their industry.
+          </div>
+        </div>
+
+        <!-- Bullet Points -->
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          <li style="display:flex;align-items:flex-start;gap:12px;animation:fadeIn-13 0.6s ease-out 0.4s both;">
+            <div style="min-width:6px;height:6px;border-radius:50%;background:#22d3ee;margin-top:10px;"></div>
+            <div style="font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.5;">
+              <strong style="color:#fff;">Top Challenge:</strong> Securing qualified AI & technical talent remains the #1 barrier to adoption.
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;animation:fadeIn-13 0.6s ease-out 0.5s both;">
+            <div style="min-width:6px;height:6px;border-radius:50%;background:#a78bfa;margin-top:10px;"></div>
+            <div style="font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.5;">
+              <strong style="color:#fff;">Upskilling:</strong> Urgent need for continuous learning programs to ensure leadership continuity.
+            </div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:12px;animation:fadeIn-13 0.6s ease-out 0.6s both;">
+            <div style="min-width:6px;height:6px;border-radius:50%;background:#34d399;margin-top:10px;"></div>
+            <div style="font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.5;">
+              <strong style="color:#fff;">DEI Focus:</strong> Leveraging diversity to access broader, untapped talent pools and drive innovation.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right Column: Chart Diagram -->
+      <div style="position:relative;padding:40px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);height:320px;display:flex;align-items:flex-end;justify-content:space-around;animation:fadeIn-13 0.6s ease-out 0.4s both;">
+        
+        <!-- Grid Lines (Background) -->
+        <div style="position:absolute;top:40px;left:40px;right:40px;bottom:40px;display:flex;flex-direction:column;justify-content:space-between;z-index:0;pointer-events:none;">
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.05);"></div>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.05);"></div>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.05);"></div>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.05);"></div>
+        </div>
+
+        <!-- Bar 1: Pace of Change -->
+        <div class="chart-bar-13" style="height:90%;background:linear-gradient(to top, rgba(251, 113, 133, 0.2), #fb7185);box-shadow: 0 0 20px rgba(251, 113, 133, 0.2);animation:growBar-13 0.8s ease-out 0.6s both;">
+          <div class="bar-value-13">90%</div>
+          <div class="bar-label-13">Pace of Change</div>
+        </div>
+
+        <!-- Bar 2: Talent Shortage -->
+        <div class="chart-bar-13" style="height:78%;background:linear-gradient(to top, rgba(167, 139, 250, 0.2), #a78bfa);box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);animation:growBar-13 0.8s ease-out 0.7s both;">
+          <div class="bar-value-13">78%</div>
+          <div class="bar-label-13">Talent Shortage</div>
+        </div>
+
+        <!-- Bar 3: Upskilling Needs -->
+        <div class="chart-bar-13" style="height:65%;background:linear-gradient(to top, rgba(34, 211, 238, 0.2), #22d3ee);box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);animation:growBar-13 0.8s ease-out 0.8s both;">
+          <div class="bar-value-13">65%</div>
+          <div class="bar-label-13">Upskilling Needs</div>
+        </div>
+
+        <!-- Bar 4: Readiness -->
+        <div class="chart-bar-13" style="height:42%;background:linear-gradient(to top, rgba(52, 211, 153, 0.2), #34d399);box-shadow: 0 0 20px rgba(52, 211, 153, 0.2);animation:growBar-13 0.8s ease-out 0.9s both;">
+          <div class="bar-value-13">42%</div>
+          <div class="bar-label-13">Org. Readiness</div>
+        </div>
+
+        <!-- Gap Indicator -->
+        <div style="position:absolute;top:15%;right:15%;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.6);padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);animation:fadeIn-13 0.6s ease-out 1.2s both;">
+           <span style="width:8px;height:8px;background:#fb7185;border-radius:50%;"></span>
+           <span style="font-size:0.8rem;color:rgba(255,255,255,0.7);">The Readiness Gap</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-index="14" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-14 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes scaleIn-14 { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulse-14 { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.05); } }
+    @keyframes lineDraw-14 { from { stroke-dashoffset: 100; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+    
+    .card-14 {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+      height: 100%;
+    }
+    
+    .card-title-14 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    
+    .card-text-14 {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .icon-box-14 {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+  </style>
+
+  <!-- Background Decorative Elements -->
+  <div style="position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(34, 211, 238, 0.06), transparent 70%);animation:pulse-14 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(167, 139, 250, 0.06), transparent 70%);animation:pulse-14 10s ease-in-out infinite reverse;"></div>
+
+  <!-- Header -->
+  <div style="max-width:900px;width:100%;text-align:center;margin-bottom:40px;position:relative;z-index:2;">
+    <h2 style="font-size:clamp(0.9rem, 1.5vw, 1.1rem);text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.5);margin-bottom:12px;animation:fadeIn-14 0.6s ease-out both;">A Roadmap for Executive Action</h2>
+    <h1 style="font-size:clamp(2.5rem, 5vw, 3.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-14 0.6s ease-out 0.1s both;">Strategic Opportunities</h1>
+  </div>
+
+  <!-- 2x2 Matrix Grid -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;width:100%;position:relative;z-index:2;">
+    
+    <!-- Quadrant 1: Ecosystem (Cyan) -->
+    <div class="card-14" style="animation:scaleIn-14 0.6s ease-out 0.2s both; border-top: 2px solid rgba(34, 211, 238, 0.5);">
+      <div class="icon-box-14" style="background: rgba(34, 211, 238, 0.1);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </div>
+      <h3 class="card-title-14" style="color: #22d3ee;">Ecosystem Leadership</h3>
+      <p class="card-text-14">Collaborate to define new industry standards and protocols, positioning the organization as a central hub rather than a siloed entity.</p>
+    </div>
+
+    <!-- Quadrant 2: Customer (Rose) -->
+    <div class="card-14" style="animation:scaleIn-14 0.6s ease-out 0.3s both; border-top: 2px solid rgba(251, 113, 133, 0.5);">
+      <div class="icon-box-14" style="background: rgba(251, 113, 133, 0.1);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </div>
+      <h3 class="card-title-14" style="color: #fb7185;">Customer-Centricity</h3>
+      <p class="card-text-14">Leverage real-time data to hyper-personalize the user experience, anticipating needs before they arise through predictive analytics.</p>
+    </div>
+
+    <!-- Quadrant 3: Investment (Amber) -->
+    <div class="card-14" style="animation:scaleIn-14 0.6s ease-out 0.4s both; border-top: 2px solid rgba(251, 191, 36, 0.5);">
+      <div class="icon-box-14" style="background: rgba(251, 191, 36, 0.1);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <h3 class="card-title-14" style="color: #fbbf24;">Pragmatic Investment</h3>
+      <p class="card-text-14">Audit current AI initiatives for clear ROI and governance, shifting focus from experimental pilots to scalable, value-driven solutions.</p>
+    </div>
+
+    <!-- Quadrant 4: Resilience (Emerald) -->
+    <div class="card-14" style="animation:scaleIn-14 0.6s ease-out 0.5s both; border-top: 2px solid rgba(52, 211, 153, 0.5);">
+      <div class="icon-box-14" style="background: rgba(52, 211, 153, 0.1);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+      <h3 class="card-title-14" style="color: #34d399;">Resilience & Adaptation</h3>
+      <p class="card-text-14">Build adaptable teams prepared for a 'Human + AI' future, fostering a culture of continuous learning and ethical responsibility.</p>
+    </div>
+
+  </div>
+
+  <!-- Central Axis/Connector Visual (Subtle background grid lines) -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:900px;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);z-index:0;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:1px;height:400px;background:linear-gradient(180deg, transparent, rgba(255,255,255,0.05), transparent);z-index:0;"></div>
+
+</div>
+<div class="slide" data-index="15" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;background:#02040a;font-family:system-ui,-apple-system,sans-serif;overflow:hidden;">
+  <style>
+    @keyframes fadeIn-15 { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInLeft-15 { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse-15 { 0%, 100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.05); } }
+    @keyframes float-15 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  </style>
+
+  <!-- Decorative Background Elements -->
+  <div style="position:absolute;top:-20%;left:-10%;width:60vw;height:60vw;background:radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%);border-radius:50%;filter:blur(60px);animation:pulse-15 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-20%;right:-10%;width:50vw;height:50vw;background:radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);border-radius:50%;filter:blur(60px);animation:pulse-15 8s ease-in-out infinite 4s;"></div>
+
+  <!-- Main Content Container -->
+  <div style="position:relative;z-index:2;width:100%;max-width:900px;display:flex;flex-direction:column;align-items:center;text-align:center;height:100%;justify-content:space-between;padding:40px 0;">
+    
+    <!-- Header Section -->
+    <div style="margin-bottom:40px;">
+      <h2 style="font-size:clamp(1rem, 2vw, 1.2rem);text-transform:uppercase;letter-spacing:0.3em;color:#22d3ee;margin-bottom:16px;animation:fadeIn-15 0.8s ease-out both;">Executive Summary</h2>
+      <h1 style="font-size:clamp(3rem, 6vw, 4.5rem);font-weight:800;line-height:1.1;margin:0;background:linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeIn-15 0.8s ease-out 0.2s both;">Driving the Future</h1>
+      <p style="font-size:clamp(1.2rem, 2.5vw, 1.5rem);color:rgba(255,255,255,0.7);margin-top:16px;font-weight:300;animation:fadeIn-15 0.8s ease-out 0.4s both;">Next Steps for Leadership & Governance</p>
+    </div>
+
+    <!-- Action Plan Cards -->
+    <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;width:100%;margin-bottom:auto;">
+      
+      <!-- Card 1 -->
+      <div style="background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;animation:fadeIn-15 0.8s ease-out 0.6s both;transition:transform 0.3s ease;">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(34,211,238,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#22d3ee;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <h3 style="font-size:1.25rem;color:#fff;margin:0 0 12px 0;font-weight:600;">Audit Maturity</h3>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.5;margin:0;">Assess current AI capabilities, data readiness, and governance frameworks.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;animation:fadeIn-15 0.8s ease-out 0.7s both;position:relative;">
+        <div style="position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, #a78bfa, transparent);"></div>
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#a78bfa;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <h3 style="font-size:1.25rem;color:#fff;margin:0 0 12px 0;font-weight:600;">Prioritize Impact</h3>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.5;margin:0;">Focus resources on high-value, scalable use cases with clear ROI.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;animation:fadeIn-15 0.8s ease-out 0.8s both;">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#34d399;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3 style="font-size:1.25rem;color:#fff;margin:0 0 12px 0;font-weight:600;">Invest in People</h3>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.5;margin:0;">Upskill talent and lead robust change management initiatives.</p>
+      </div>
+    </div>
+
+    <!-- Footer / Contact -->
+    <div style="width:100%;border-top:1px solid rgba(255,255,255,0.1);padding-top:30px;display:flex;justify-content:space-between;align-items:center;animation:fadeIn-15 0.8s ease-out 1.0s both;margin-top:40px;">
+      
+      <!-- Company Logo Placeholder -->
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg, #22d3ee, #a78bfa);border-radius:6px;"></div>
+        <span style="font-weight:700;font-size:1.1rem;letter-spacing:0.05em;color:#fff;">NEXUS<span style="font-weight:300;opacity:0.7;">AI</span></span>
+      </div>
+
+      <!-- Contact Info -->
+      <div style="text-align:right;display:flex;gap:32px;">
+        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:0.9rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          contact@nexusai.com
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:0.9rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          www.nexusai.com
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="counter" id="counter">1 / 16</div>
+<div class="nav">
+  <button id="prev" aria-label="Previous slide" disabled>&#8592;</button>
+  <button id="next" aria-label="Next slide" >&#8594;</button>
+  <button id="notesBtn" aria-label="Toggle speaker notes" title="Speaker Notes" style="font-size:1rem">&#128221;</button>
+</div>
+<script>
+(function(){
+  var current=0;
+  var slides=document.querySelectorAll('.slide');
+  var total=slides.length;
+  var prevBtn=document.getElementById('prev');
+  var nextBtn=document.getElementById('next');
+  var counter=document.getElementById('counter');
+  var progress=document.getElementById('progress');
+
+  if(total>0) slides[0].classList.add('active');
+
+  function goTo(n){
+    if(n<0||n>=total)return;
+    slides[current].classList.remove('active');
+    current=n;
+    slides[current].classList.add('active');
+    prevBtn.disabled=current===0;
+    nextBtn.disabled=current===total-1;
+    counter.textContent=(current+1)+' / '+total;
+    progress.style.width=((current+1)/total*100)+'%';
+    window.parent.postMessage({type:'deckState',currentSlide:current+1,totalSlides:total},'*');
+  }
+
+  prevBtn.addEventListener('click',function(){goTo(current-1)});
+  nextBtn.addEventListener('click',function(){goTo(current+1)});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' ')goTo(current+1);
+    if(e.key==='ArrowLeft')goTo(current-1);
+  });
+
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.type==='keyEvent'){
+      if(e.data.code==='ArrowRight'||e.data.code==='Space')goTo(current+1);
+      if(e.data.code==='ArrowLeft')goTo(current-1);
+    }
+    if(e.data&&e.data.type==='goToSlide'){goTo(e.data.slide)}
+  });
+
+  var startX=0;
+  document.addEventListener('touchstart',function(e){startX=e.touches[0].clientX});
+  document.addEventListener('touchend',function(e){
+    var diff=e.changedTouches[0].clientX-startX;
+    if(Math.abs(diff)>50){diff<0?goTo(current+1):goTo(current-1)}
+  });
+
+  progress.style.width=(1/total*100)+'%';
+  window.parent.postMessage({type:'deckState',currentSlide:1,totalSlides:total},'*');
+
+  // ── Presenter View ──
+  var notesData=[{"slide":1,"title":"AI Trends in the Automotive Space","notes":"Welcome. Today we create a strategic roadmap for AI in the automotive sector. We will analyze the shift from experimentation to execution, focusing on 2026 as a landmark year for intelligent transformation, and discuss how to move beyond the hype to tangible ROI."},{"slide":2,"title":"The 2026 Strategic Horizon","notes":"Research indicates 2026 is a critical target year. Companies like Hyundai are publicly committing to a 2026 vision that embeds AI into their DNA. For us, this means the window for foundational investment is now, as we move toward ecosystem leadership."},{"slide":3,"title":"From Smarter Vehicles to Smarter Enterprises","notes":"As SAP News notes, the future isn't just about smarter cars, but smarter enterprises. We must look beyond the dashboard. The real value unlock lies in AI agents supporting decision-making across the entire value chain, from design to service."},{"slide":4,"title":"Core Technologies Driving Innovation","notes":"Four pillars support this transformation. While CV and ML are established in autonomy and maintenance, Generative AI is rapidly changing how we design and simulate vehicles, drastically reducing time-to-market."},{"slide":5,"title":"Accelerating New Product Introduction (NPI)","notes":"New Product Introduction is traditionally linear and manual. AI agents can now monitor real-time data across inventories and engineering changes, fundamentally reimagining NPI to be dynamic and risk-aware."},{"slide":6,"title":"Supply Chain & Manufacturing Agility","notes":"We are moving from passive dashboards to active Agents. These systems don't just report data; they reimagine planning workflows, supporting human staff with contextual awareness to manage service parts and manufacturing logistics efficiently."},{"slide":7,"title":"Electrification: AI in Battery Management","notes":"In the EV space, the Battery Management System is the brain. As batteries age, resistance increases. AI-driven BMS is essential for precise diagnostics and thermal management, ensuring safety and extending the asset lifespan."},{"slide":8,"title":"BMS Evolution: Standard vs. AI-Enhanced","notes":"Compare standard systems to AI-enhanced ones. Where standard BMS reacts to faults, AI predicts them. It handles the non-linear degradation of battery health, providing a significant competitive advantage in vehicle reliability."},{"slide":9,"title":"Autonomous Driving & Agent-Driven Apps","notes":"Autonomous driving is evolving into 'agent-driven super-apps'. By 2026, we expect these foundational apps to redefine workflows. The focus is shifting from theoretical autonomy to practical, integrated vehicle operations."},{"slide":10,"title":"Market Reality: The AI 'Bubble' & ROI","notes":"We must be realistic. Experts suggest the AI bubble will deflate as companies realize many initial investments aren't paying off. This isn't a signal to stop, but to calibrate—moving from hype-driven spending to strategy-driven ROI."},{"slide":11,"title":"Regulatory Landscape","notes":"The regulatory environment is hardening. Regulators are no longer interested in aspirational ethics statements; they demand demonstrable controls. We must be ready to prove how our models work and where our data comes from."},{"slide":12,"title":"Ethical Leadership & Governance","notes":"Ethics in automotive AI isn't just about philosophy; it's about safety. We must integrate human judgment and transparent oversight into deployment, ensuring we don't rely solely on 'black box' algorithms for critical safety decisions."},{"slide":13,"title":"The Leadership Challenge","notes":"Leadership is changing. We are entering the 'Human + AI' era. Leaders must master emotional intelligence and empathy while using AI as a force multiplier to handle repetitive tasks and sharpen strategic decision-making."},{"slide":14,"title":"Talent & Organizational Readiness","notes":"90% of leaders feel the pace of change accelerating. Our biggest bottleneck is talent. We need to focus on upskilling and broadening our talent pool through DEI initiatives to secure the AI-related skills necessary for survival."},{"slide":15,"title":"Strategic Opportunities","notes":"To summarize our strategy: We must pursue ecosystem leadership through collaboration, relentlessly focus on customer-centricity, audit our investments for real ROI, and build resilient, hybrid teams."},{"slide":16,"title":"Driving the Future","notes":"The intelligent transformation is here. The difference between success and stagnation will be our ability to execute with governance and strategic focus. Thank you."}];
+  var notesWin=null;
+  var notesBtn=document.getElementById('notesBtn');
+  var isInIframe=window.self!==window.top;
+  if(isInIframe&&notesBtn)notesBtn.style.display='none';
+
+  function buildNotesHtml(){
+    return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Speaker Notes - '+"AI trends in the Automotive Space"+'</title>'
+      +'<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#0f1117;color:#e2e8f0;padding:32px;height:100vh;display:flex;flex-direction:column}'
+      +'.header{margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1)}'
+      +'.slide-num{font-size:0.85rem;color:#a78bfa;font-weight:600;letter-spacing:0.05em}'
+      +'.slide-title{font-size:1.5rem;font-weight:700;margin-bottom:16px;color:#f1f5f9}'
+      +'.notes-text{font-size:1.15rem;line-height:1.8;color:#cbd5e1;flex:1;overflow-y:auto;white-space:pre-wrap}'
+      +'.nav{display:flex;gap:8px;margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)}'
+      +'.nav button{padding:8px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;cursor:pointer;font-size:0.9rem;transition:all 0.2s}'
+      +'.nav button:hover{background:rgba(255,255,255,0.2)}.nav button:disabled{opacity:0.3;cursor:not-allowed}'
+      +'.nav .counter{flex:1;text-align:center;line-height:38px;font-size:0.85rem;color:#64748b}</style></head>'
+      +'<body>'
+      +'<div class="header"><span class="slide-num" id="sn-num"></span></div>'
+      +'<div class="slide-title" id="sn-title"></div>'
+      +'<div class="notes-text" id="sn-notes"></div>'
+      +'<div class="nav">'
+      +'<button id="sn-prev">&#8592; Previous</button>'
+      +'<span class="counter" id="sn-counter"></span>'
+      +'<button id="sn-next">Next &#8594;</button>'
+      +'</div>'
+      +'<script>'
+      +'var allNotes='+JSON.stringify(notesData)+';'
+      +'var totalSlides='+total+';'
+      +'function showNote(s){'
+      +'var n=allNotes[s-1]||{title:"",notes:"No notes for this slide."};'
+      +'document.getElementById("sn-num").textContent="SLIDE "+s+" OF "+totalSlides;'
+      +'document.getElementById("sn-title").textContent=n.title;'
+      +'document.getElementById("sn-notes").textContent=n.notes;'
+      +'document.getElementById("sn-counter").textContent=s+" / "+totalSlides;'
+      +'}'
+      +'showNote(1);'
+      +'document.getElementById("sn-prev").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"prev"},"*")});'
+      +'document.getElementById("sn-next").addEventListener("click",function(){window.opener&&window.opener.postMessage({type:"notesNav",dir:"next"},"*")});'
+      +'window.addEventListener("message",function(e){if(e.data&&e.data.type==="noteUpdate")showNote(e.data.slide)});'
+      +'<\/script></body></html>';
+  }
+
+  function updateNotesWindow(){
+    if(notesWin&&!notesWin.closed){
+      notesWin.postMessage({type:'noteUpdate',slide:current+1},'*');
+    }
+  }
+
+  // Listen for navigation requests from notes window
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.type==='notesNav'){
+      if(e.data.dir==='prev')goTo(current-1);
+      if(e.data.dir==='next')goTo(current+1);
+    }
+  });
+
+  // Patch goTo to also update notes window
+  var origGoTo=goTo;
+  goTo=function(n){
+    origGoTo(n);
+    updateNotesWindow();
+  };
+
+  if(notesBtn)notesBtn.addEventListener('click',function(){
+    if(notesWin&&!notesWin.closed){
+      notesWin.close();
+      notesWin=null;
+      notesBtn.classList.remove('active');
+    }else{
+      notesWin=window.open('','_blank','width=500,height=600');
+      if(notesWin){
+        notesWin.document.open();
+        notesWin.document.write(buildNotesHtml());
+        notesWin.document.close();
+        notesBtn.classList.add('active');
+        var checkClosed=setInterval(function(){if(notesWin&&notesWin.closed){notesWin=null;notesBtn.classList.remove('active');clearInterval(checkClosed)}},500);
+      }
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
